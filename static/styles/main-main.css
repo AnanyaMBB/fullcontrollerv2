@@ -1,0 +1,418 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.header {
+    background-color: rgb(192, 0, 0);
+    height: 10vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 200%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgb(68, 114, 196);
+    padding-top: 1vh;
+    padding-bottom: 3vh;
+}
+
+.menu h1 {
+    font-family: 'Malgun Gothic';
+    background-color: rgb(0, 32, 96);
+    color: #fff;
+    padding: 10px;
+}
+.main {
+    height: 70vh;
+    background-color: rgb(68, 114, 196);
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 60vh;
+}
+
+.main section {
+    /* border: 2px solid red; */
+    width: 50%;
+}
+
+.fan-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.fan-control div {
+    /* border: 2px solid yellow; */
+}
+
+.fan-control .east {
+    width: 25%;
+    height: 60vh;
+}
+
+.fan-control .north-south {
+    width: 50%;
+    height: 60vh;
+}
+
+.fan-control .west {
+    width: 25%;
+    height: 60vh;
+}
+
+.fan-control .east {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fan-control .east .east-top-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.fan-control .east .east-bottom-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.fan-control .east .east-top-btn a {
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    height: 5vh;    
+    background-color: white;
+    margin-bottom: 1vh;
+}
+
+.fan-control .east .east-top-btn a:nth-child(1) {
+    margin-right: 5%;
+}
+
+.fan-control .east .east-top-btn a:nth-child(2) {
+    margin-left: 5%;
+}
+
+.fan-control .east .east-bottom-btn a {
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    height: 5vh;    
+    background-color: white;
+    margin-top: 1vh;
+}
+
+.fan-control .east .east-bottom-btn a:nth-child(1) {
+    margin-right: 5%;
+}
+
+.fan-control .east .east-bottom-btn a:nth-child(2) {
+    margin-left: 5%;
+}
+
+.north-south a {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 5vh;    
+    background-color: white;
+}
+.north-south div {
+    display: block;
+    width: 100%;
+}
+
+.north-south .top .top-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+.north-south .top .top-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5vh;
+}
+
+.north-south .bottom .bottom-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;  
+    margin-bottom: 5vh; 
+}
+
+.north-south .bottom .bottom-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5vh;
+}
+
+.north-south .btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-right: 3px
+}
+
+.north-south .btn-container a {
+    margin-right: 2px
+}
+
+.north-south .top {
+    margin-bottom: 25vh;
+}
+
+.north-south .bottom {
+    margin-top: 25vh;
+}
+
+.fan-control .west {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fan-control .west .west-top-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.fan-control .west .west-bottom-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.fan-control .west .west-top-btn a {
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    height: 5vh;    
+    background-color: white;
+    margin-bottom: 1vh;
+}
+
+.fan-control .west .west-top-btn a:nth-child(1) {
+    margin-right: 5%;
+}
+
+.fan-control .west .west-top-btn a:nth-child(2) {
+    margin-left: 5%;
+}
+
+.fan-control .west .west-bottom-btn a {
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    height: 5vh;    
+    background-color: white;
+    margin-top: 1vh;
+}
+
+.fan-control .west .west-bottom-btn a:nth-child(1) {
+    margin-right: 5%;
+}
+
+.fan-control .west .west-bottom-btn a:nth-child(2) {
+    margin-left: 5%;
+}
+
+.east h1 {
+    font-family: "Malgun Gothic";
+    color: #fff;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.north-south h1 {
+    font-family: "Malgun Gothic";
+    color: #fff;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.west h1 {
+    font-family: "Malgun Gothic";
+    color: #fff;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.duct-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    background-color: rgb(68, 114, 196);
+    /* padding-bottom: 3vh; */
+    margin-left: 1%;
+}
+.duct-menu h1 {
+    font-family: 'Malgun Gothic';
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgb(112, 48, 160);
+}
+
+.duct-control .duct-action div {
+    height: 57vh;
+    width: 25%;
+}
+
+.duct-control .duct-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.duct-control .duct-action a {
+    display: block;
+    width: 80%;
+    height: 8vh;
+    background:white;
+    margin-bottom: 10px;
+    margin-left: 10%;
+
+}
+
+.footer {
+    height: 20vh;
+    background-color: Gold;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.footer div {
+    display: block;
+    width: 100%;
+    height: 20vh;
+}
+
+.footer a{
+    display: inline-block;
+    width: 20%;
+    height: 3vh;
+    background-color: black;
+    text-decoration: none;
+    font-family: "Malgun Gothic";
+    text-align: center;
+    
+    color: white;
+}
+
+.footer label {
+    display: inline-block;
+    background-color: rgb(192, 0, 0);
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.password {
+    margin-top: 2vh;
+}
+.footer input {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.password input {
+    width: 80%;
+}
+
+.duct-action {
+    display: inline;
+}
+.duct-action input {
+    width: 10%;
+}
+
+.fan-control input[type="text"] {
+    display: none;
+}
+
+
+
+.footer .fan-action {
+    width: 40%;
+    margin-top: 2vh;
+}
+
+.footer .password {
+    width: 15%;
+}
+
+.footer .duct-action {
+    width: 45%;
+    margin-top: 2vh;
+}

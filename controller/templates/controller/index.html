@@ -1,0 +1,395 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section class="header">
+    <div class="container">
+        <h1>IRIS Ventilation System Control Interface</h1>
+        <button>Logout</button>
+    </div>
+</section>
+
+<!-- <section class="addModel">
+    <div class="container">
+        <form action="">
+            <input type="text" placeholder="Write the Model Name">
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+</section> -->
+
+<section class="menu">
+    <h1>FAN Control</h1>
+    <h1>DUCT Control</h1>
+</section>
+
+<section class="main">
+    <section class="fan-control">
+        <div class="east">
+            <h1>EAST</h1>
+            <div class="btn-container">
+            <div class="east-top-btn">
+                <form method="POST" action="{% url 'multipleSelect' %}">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="east_top_btn_1">
+                    <input type="submit" value="" {% if boolBtnSelectedFan.east_top_btn_1 == 1 %} class="selectedBtn" {% endif %} id="btn">
+                </form>
+                <form method="POST" action="{% url 'multipleSelect' %}">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="east_top_btn_2">
+                    <input type="submit" value="" {% if boolBtnSelectedFan.east_top_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                </form>
+                
+            </div>
+            <div class="east-bottom-btn">
+                <form method="POST" action="{% url 'multipleSelect' %}">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="east_bottom_btn_1">
+                    <input type="submit" value="" {% if boolBtnSelectedFan.east_bottom_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                </form>
+                <form method="POST" action="{% url 'multipleSelect' %}">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="east_bottom_btn_2">
+                    <input type="submit" value="" {% if boolBtnSelectedFan.east_bottom_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                </form>
+                
+            </div>
+        </div>
+        </div>
+        <div class="north-south">
+            <h1>SOUTH</h1>
+            <div class="top">
+                <div class="top-top">
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tt_btn_1" >
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tt_btn_2">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tt_btn_3">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_3 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tt_btn_4">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_4 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tt_btn_5">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_5 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tt_btn_6">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_6 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="top-bottom">
+                    <div class="btn-container">   
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tb_btn_1">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tb_btn_2">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tb_btn_3">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_3 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tb_btn_4">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_4 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tb_btn_5">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_5 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_tb_btn_6">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_6 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <h1>NORTH</h1>
+                <div class="bottom-top">
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bt_btn_1">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bt_btn_2">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bt_btn_3">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_3 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bt_btn_4">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_4 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bt_btn_5">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_5 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bt_btn_6">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_6 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="bottom-bottom">
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bb_btn_1">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bb_btn_2">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bb_btn_3">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_3 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bb_btn_4">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_4 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                    <div class="btn-container">
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bb_btn_5">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_5 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        <form method="POST" action="{% url 'multipleSelect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="q" value="ns_bb_btn_6">
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_6 == 1 %} class="selectedBtn" {% endif %}>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="west">
+            <h1>WEST</h1>
+            <div class="west-top-btn">
+                <form method="POST" action="{% url 'multipleSelect' %}">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="west_top_btn_1">
+                    <input type="submit" value="" {% if boolBtnSelectedFan.west_top_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                </form>
+                <form method="POST" action="{% url 'multipleSelect' %}">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="west_top_btn_2">
+                    <input type="submit" value="" {% if boolBtnSelectedFan.west_top_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                </form>
+                <!-- <a href="" class="west-btn-1"></a>
+                <a href="" class="west-btn-2"></a> -->
+            </div>
+            <div class="west-bottom-btn">
+                <form method="POST" action="{% url 'multipleSelect' %}">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="west_bottom_btn_1">
+                    <input type="submit" value="" {% if boolBtnSelectedFan.west_bottom_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                </form>
+                <form method="POST" action="{% url 'multipleSelect' %}">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="west_bottom_btn_2">
+                    <input type="submit" value="" {% if boolBtnSelectedFan.west_bottom_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                </form>
+                <!-- <a href="" class="west-btn-3"></a>
+                <a href="" class="west-btn-4"></a> -->
+            </div>
+        </div>
+    </section>
+    <section class="duct-control">
+        <!-- <div class="duct-menu">
+            <h1>Floor 1</h1>
+            <h1>Floor 2</h1>
+            <h1>Ceiling 1</h1>
+            <h1>Ceiling 2</h1>
+        </div> -->
+        <div class="duct-action">
+            <div class="floor-1">     
+                <form method="POST" action="{% url 'multipleSelect' %}" id="floor-1-1-form">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="floor_1_1">
+                    <input type="submit" id="floor-1-1" value="Floor 1-1">
+                </form>             
+                <a href="{% url 'index' 'floor_1_btn_1' %}" class="floor_1_btn_1 {% if boolBtnSelectedDuct.floor_1_btn_1 == 1 %} selectedBtn {% endif %}" ></a>
+                <a href="{% url 'index' 'floor_1_btn_2' %}" class="floor_1_btn_2 {% if boolBtnSelectedDuct.floor_1_btn_2 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'floor_1_btn_3' %}" class="floor_1_btn_3 {% if boolBtnSelectedDuct.floor_1_btn_3 == 1 %} selectedBtn {% endif %}"></a>
+                <!-- <h1>Floor 1-2</h1>  -->
+                <form method="POST" action="{% url 'multipleSelect' %}" id="floor-1-2-form">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="floor_1_2">
+                    <input type="submit" id="floor-1-2" value="Floor 1-2">
+                </form> 
+                <a href="{% url 'index' 'floor_1_btn_4' %}" class="floor_1_btn_4 {% if boolBtnSelectedDuct.floor_1_btn_4 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'floor_1_btn_5' %}" class="floor_1_btn_5 {% if boolBtnSelectedDuct.floor_1_btn_5 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'floor_1_btn_6' %}" class="floor_1_btn_6 {% if boolBtnSelectedDuct.floor_1_btn_6 == 1 %} selectedBtn {% endif %}"></a>
+            </div>
+            <div class="floor-2">
+                <!-- <h1>Floor 2-1</h1>  -->
+                <form method="POST" action="{% url 'multipleSelect' %}" id="floor-2-1-form">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="floor_2_1">
+                    <input type="submit" id="floor-2-1" value="Floor 2-1">
+                </form> 
+                <a href="{% url 'index' 'floor_2_btn_1' %}" class="floor_2_btn_2 {% if boolBtnSelectedDuct.floor_2_btn_1 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'floor_2_btn_2' %}" class="floor_2_btn_2 {% if boolBtnSelectedDuct.floor_2_btn_2 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'floor_2_btn_3' %}" class="floor_2_btn_3 {% if boolBtnSelectedDuct.floor_2_btn_3 == 1 %} selectedBtn {% endif %}"></a>
+                <!-- <h1>Floor 2-2</h1>  -->
+                <form method="POST" action="{% url 'multipleSelect' %}" id="floor-2-2-form">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="floor_2_2">
+                    <input type="submit" id="floor-2-2" value="Floor 2-2">
+                </form> 
+                <a href="{% url 'index' 'floor_2_btn_4' %}" class="floor_2_btn_4 {% if boolBtnSelectedDuct.floor_2_btn_4 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'floor_2_btn_5' %}" class="floor_2_btn_5 {% if boolBtnSelectedDuct.floor_2_btn_5 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'floor_2_btn_6' %}" class="floor_2_btn_6 {% if boolBtnSelectedDuct.floor_2_btn_6 == 1 %} selectedBtn {% endif %}"></a>
+            </div>
+            <div class="ceiling-1">
+                <!-- <h1>Ceiling 1-1</h1>  -->
+                <form method="POST" action="{% url 'multipleSelect' %}" id="ceiling-1-1-form">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="ceiling_1_1">
+                    <input type="submit" id="ceiling-1-1" value="Ceiling 1-1">
+                </form> 
+                <a href="{% url 'index' 'ceiling_1_btn_1' %}" class="ceiling_1_btn_1{% if boolBtnSelectedDuct.ceiling_1_btn_1 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'ceiling_1_btn_2' %}" class="ceiling_1_btn_2{% if boolBtnSelectedDuct.ceiling_1_btn_2 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'ceiling_1_btn_3' %}" class="ceiling_1_btn_3{% if boolBtnSelectedDuct.ceiling_1_btn_3 == 1 %} selectedBtn {% endif %}"></a>
+                <!-- <h1>Ceiling 1-2</h1>  -->
+                <form method="POST" action="{% url 'multipleSelect' %}" id="ceiling-1-2-form">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="ceiling_1_2">
+                    <input type="submit" id="ceiling-1-2" value="Ceiling 1-2">
+                </form> 
+                <a href="{% url 'index' 'ceiling_1_btn_4' %}" class="ceiling_1_btn_4{% if boolBtnSelectedDuct.ceiling_1_btn_4 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'ceiling_1_btn_5' %}" class="ceiling_1_btn_5{% if boolBtnSelectedDuct.ceiling_1_btn_5 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'ceiling_1_btn_6' %}" class="ceiling_1_btn_6{% if boolBtnSelectedDuct.ceiling_1_btn_6 == 1 %} selectedBtn {% endif %}"></a>
+            </div>
+            <div class="ceiling-2">
+                <!-- <h1>Ceiling 2-1</h1>  -->
+                <form method="POST" action="{% url 'multipleSelect' %}" id="ceiling-2-1-form">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="ceiling_2_1">
+                    <input type="submit" id="ceiling-2-1" value="Ceiling 2-1">
+                </form> 
+                <a href="{% url 'index' 'ceiling_2_btn_1' %}" class="ceiling_2_btn_1{% if boolBtnSelectedDuct.ceiling_2_btn_1 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'ceiling_2_btn_2' %}" class="ceiling_2_btn_2{% if boolBtnSelectedDuct.ceiling_2_btn_2 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'ceiling_2_btn_3' %}" class="ceiling_2_btn_3{% if boolBtnSelectedDuct.ceiling_2_btn_3 == 1 %} selectedBtn {% endif %}"></a>
+                <!-- <h1>Ceiling 2-1</h1> -->
+                <form method="POST" action="{% url 'multipleSelect' %}" id="ceiling-2-2-form">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="ceiling_2_2">
+                    <input type="submit" id="ceiling-2-2" value="Ceiling 2-2">
+                </form> 
+                <a href="{% url 'index' 'ceiling_2_btn_4' %}" class="ceiling_2_btn_4{% if boolBtnSelectedDuct.ceiling_2_btn_4 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'ceiling_2_btn_5' %}" class="ceiling_2_btn_5{% if boolBtnSelectedDuct.ceiling_2_btn_5 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'ceiling_2_btn_6' %}" class="ceiling_2_btn_6{% if boolBtnSelectedDuct.ceiling_2_btn_6 == 1 %} selectedBtn {% endif %}"></a>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section class="footer">
+    <div class="fan-action">
+        <a href="{% url 'supplyCommand' %}" class="supply">Supply</a>
+        <a href="{% url 'exhaustCommand' %}" class="exhaust">Exhaust</a>
+        <a href="{% url 'offCommand' %}" class="off">Off</a>
+        <a href="{% url 'fanStatusCommand' %}" class="status">Status</a>
+    </div>
+    <div class="password">
+        <label for="pass">PW</label>
+        <input type="text" type="password">
+    </div>    
+    <div class="duct-action">
+        <a href="{% url 'semiOpenCommand' %}" class="semi-open">semi-open</a>
+        <a href="{% url 'openCommand' %}" class="open">Open</a>
+        <input type="text" class="open-amount">
+        <a href="{% url 'closeCommand' %}" class="close">Close</a>
+        <a href="{% url 'ductStatusCommand' %}" class="status">Status</a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        var floor_1_1 = document.querySelector("#floor_1_1");
+        var floor_1_1_form = document.querySelector("#floor-1-1-form");
+        floor_1_1.addEventListener("Click", (event)=>{
+            event.preventDefault();
+            floor_1_1_form.submit();
+        });
+    });
+    // document.addEventListener('DOMContentLoaded', ()=> {
+        
+    //     var createProduct = document.querySelector("#btn");
+    //     var productForm = document.querySelector('.addModel');
+    //     var hidden = true;
+    //     createProduct.addEventListener("dblclick", (event) => {
+    //         productForm.style.display = productForm.style.display=='none' ? 'block' : 'none';
+    //     });
+    // });
+
+</script>
+
+{% endblock %}

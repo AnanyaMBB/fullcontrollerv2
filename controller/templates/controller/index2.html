@@ -1,0 +1,166 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section class="header">
+    <h1>IRIS Ventilation System Control Interface</h1>
+</section>
+
+<section class="menu">
+    <h1>FAN Control</h1>
+    <h1>DUCT Control</h1>
+</section>
+<section class="main">
+    <section class="fan-control">
+        <div class="east">
+            <h1>EAST</h1>
+            <div class="east-top-btn">
+                <a href="" class="east-btn-1"></a>
+                <a href="" class="east-btn-2"></a>
+            </div>
+            <div class="east-bottom-btn">
+                <a href="" class="east-btn-3"></a>
+                <a href="" class="east-btn-4"></a>
+            </div>
+        </div>
+        <div class="north-south">
+            <h1>SOUTH</h1>
+            <div class="top">
+                <div class="top-top">
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                </div>
+                <div class="top-bottom">
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <h1>NORTH</h1>
+                <div class="bottom-top">
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                </div>
+                <div class="bottom-bottom">
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                    <div class="btn-container">
+                        <a href="" class="btn-1"></a>
+                        <a href="" class="btn-2"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="west">
+            <h1>WEST</h1>
+            <div class="west-top-btn">
+                <a href="" class="west-btn-1"></a>
+                <a href="" class="west-btn-2"></a>
+            </div>
+            <div class="west-bottom-btn">
+                <a href="" class="west-btn-3"></a>
+                <a href="" class="west-btn-4"></a>
+            </div>
+        </div>
+    </section>
+    <section class="duct-control">
+        <div class="duct-menu">
+            <h1>Floor 1</h1>
+            <h1>Floor 2</h1>
+            <h1>Ceiling 1</h1>
+            <h1>Ceiling 2</h1>
+        </div>
+        <div class="duct-action">
+            <div class="floor-1">
+                <a href="" class="floor-1-btn-1"></a>
+                <a href="" class="floor-1-btn-2"></a>
+                <a href="" class="floor-1-btn-3"></a>
+                <a href="" class="floor-1-btn-4"></a>
+                <a href="" class="floor-1-btn-5"></a>
+                <a href="" class="floor-1-btn-6"></a>
+            </div>
+            <div class="floor-2">
+                <a href="" class="floor-2-btn-2"></a>
+                <a href="" class="floor-2-btn-2"></a>
+                <a href="" class="floor-2-btn-3"></a>
+                <a href="" class="floor-2-btn-4"></a>
+                <a href="" class="floor-2-btn-5"></a>
+                <a href="" class="floor-2-btn-6"></a>
+            </div>
+            <div class="ceiling-1">
+                <a href="" class="ceiling-1-btn-1"></a>
+                <a href="" class="ceiling-1-btn-2"></a>
+                <a href="" class="ceiling-1-btn-3"></a>
+                <a href="" class="ceiling-1-btn-4"></a>
+                <a href="" class="ceiling-1-btn-5"></a>
+                <a href="" class="ceiling-1-btn-6"></a>
+            </div>
+            <div class="ceiling-2">
+                <a href="" class="ceiling-2-btn-1"></a>
+                <a href="" class="ceiling-2-btn-2"></a>
+                <a href="" class="ceiling-2-btn-3"></a>
+                <a href="" class="ceiling-2-btn-4"></a>
+                <a href="" class="ceiling-2-btn-5"></a>
+                <a href="" class="ceiling-2-btn-6"></a>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section class="footer">
+    <div class="fan-action">
+        <a href="" class="supply">Supply</a>
+        <a href="" class="exhaust">Exhaust</a>
+        <a href="" class="off">Off</a>
+        <a href="" class="status">Status</a>
+    </div>
+    <div class="password">
+        <label for="pass">PW</label>
+        <input type="text" type="password">
+    </div>    
+    <div class="duct-action">
+        <a href="" class="semi-open">semi-open</a>
+        <a href="" class="open">Open</a>
+        <input type="text" class="open-amount">
+        <a href="" class="close">Close</a>
+        <a href="" class="status">Status</a>
+    </div>
+</section>
+
+{% endblock %}
