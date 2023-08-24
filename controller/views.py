@@ -211,8 +211,11 @@ def ducts(request):
 
 
 def multipleSelectFunc(ductName):
-    for item in floorSegmentDesignation[ductName]:
-        boolBtnSelectedDuct[item] = 1 - boolBtnSelectedDuct[item]
+    if ductName in boolBtnSelectedDuct.keys():
+        for item in floorSegmentDesignation[ductName]:
+            boolBtnSelectedDuct[item] = 1 - boolBtnSelectedDuct[item]
+    elif ductName in boolBtnSelectedFan.keys():
+        boolBtnSelectedFan[ductName] = 1 - boolBtnSelectedFan[ductName]
 
 
 def multipleSelect(request):
