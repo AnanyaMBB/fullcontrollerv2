@@ -193,6 +193,7 @@ header .container {
     flex-direction: column;
     justify-content: flex-start;
     width: 50%;
+    height: 10vh;
 }
 
 .fan-control .east .east-bottom-btn {
