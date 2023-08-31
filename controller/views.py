@@ -4,7 +4,7 @@ from .models import FanButtonModel, DuctButtonModel
 import paho.mqtt.client as paho
 import json
 
-broker = 'localhost'
+broker = '146.190.138.255'
 port = 1883
 
 boolBtnSelectedFan = {
@@ -211,11 +211,11 @@ def ducts(request):
 
 
 def multipleSelectFunc(ductName):
-    if ductName in boolBtnSelectedDuct.keys():
-        for item in floorSegmentDesignation[ductName]:
-            boolBtnSelectedDuct[item] = 1 - boolBtnSelectedDuct[item]
-    elif ductName in boolBtnSelectedFan.keys():
-        boolBtnSelectedFan[ductName] = 1 - boolBtnSelectedFan[ductName]
+    # if ductName in boolBtnSelectedDuct.keys():
+    for item in floorSegmentDesignation[ductName]:
+        boolBtnSelectedDuct[item] = 1 - boolBtnSelectedDuct[item]
+    # elif ductName in boolBtnSelectedFan.keys():
+    #     boolBtnSelectedFan[ductName] = 1 - boolBtnSelectedFan[ductName]
 
 
 def multipleSelect(request):
