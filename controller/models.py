@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class FanButtonModel(models.Model):
     btnID = models.CharField(max_length=200)
     model = models.CharField(max_length=200)

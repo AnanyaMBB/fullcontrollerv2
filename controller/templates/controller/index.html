@@ -5,7 +5,8 @@
 <section class="header">
     <div class="container">
         <h1>IRIS Ventilation System Control Interface</h1>
-        <button>Logout</button>
+        <!-- <button>Logout</button> -->
+        <a href="{% url 'logoutPage' %}">Logout</a>
     </div>
 </section>
 
@@ -358,10 +359,10 @@
         <a href="{% url 'offCommand' %}" class="off">Off</a>
         <a href="{% url 'fanStatusCommand' %}" class="status">Status</a>
     </div>
-    <div class="password">
+    <!-- <div class="password">
         <label for="pass">PW</label>
         <input type="text" type="password">
-    </div>    
+    </div>     -->
     <div class="duct-action">
         <a href="{% url 'semiOpenCommand' %}" class="semi-open">semi-open</a>
         <a href="{% url 'openCommand' %}" class="open">Open</a>

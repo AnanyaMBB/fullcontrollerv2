@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import FanButtonModel, DuctButtonModel
+from django.contrib.auth.models import User
+from .forms import UserForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
 import paho.mqtt.client as paho
 import json
 
@@ -85,7 +90,7 @@ def is_selected(pair):
     key, value = pair
     return value == 1
 
-
+@login_required(login_url='loginPage')
 def indexPage(request):
     context = {'boolBtnSelectedFan': boolBtnSelectedFan,
                'boolBtnSelectedDuct': boolBtnSelectedDuct}
@@ -96,7 +101,7 @@ def indexPage(request):
 
     return render(request, 'controller/index.html', context)
 
-
+@login_required(login_url='loginPage')
 def index(request, pk):
     if request.method == 'GET':
         boolBtnSelectedDuct[pk] = 1 - \
@@ -104,6 +109,23 @@ def index(request, pk):
 
     return redirect(indexPage)
 
+def loginPage(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username = username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('indexPage')
+    form = AuthenticationForm()
+            
+    return render(request, 'controller/login.html', {'form':form})
+
+def logoutPage(request):
+    logout(request)
+    return redirect('loginPage')
 
 def supplyCommand(request):
     selectedBtns = dict(filter(is_selected, boolBtnSelectedFan.items()))

@@ -4,6 +4,8 @@ from . import views
 urlpatterns = [
     path('', views.indexPage, name='indexPage'),
     path('index/<str:pk>/', views.index, name='index'),
+    path('login/', views.loginPage, name='loginPage'),
+    path('logout/', views.logoutPage, name='logoutPage'),
     path('supplyCommand/', views.supplyCommand, name='supplyCommand'),
     path('exhaustCommand/', views.exhaustCommand, name='exhaustCommand'),
     path('offCommand/', views.offCommand, name='offCommand'),
