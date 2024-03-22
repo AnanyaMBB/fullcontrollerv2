@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
-from .models import FanButtonModel, DuctButtonModel
+from django.http import JsonResponse, HttpResponse
+from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements
 from django.contrib.auth.models import User
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
@@ -8,8 +8,11 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 import paho.mqtt.client as paho
 import json
+import time
 
-broker = '146.190.138.255'
+# broker = '146.190.138.255'
+# broker = 'localhost'
+broker = '127.0.0.1'
 port = 1883
 
 boolBtnSelectedFan = {
@@ -231,7 +234,6 @@ def fans(request):
 def ducts(request):
     return JsonResponse(list(DuctButtonModel.objects.all().values()), safe=False)
 
-
 def multipleSelectFunc(ductName):
     # if ductName in boolBtnSelectedDuct.keys():
     for item in floorSegmentDesignation[ductName]:
@@ -247,3 +249,85 @@ def multipleSelect(request):
         multipleSelectFunc(request.POST['q'])
 
     return redirect('indexPage')
+
+def createMode(request):
+    mode = Mode()
+    mode.save()
+    return JsonResponse({'mode_id': mode.mode_id})
+
+def addMode(request):
+    # if request.method == 'GET':
+    #     mode = Mode(mode_name=request.GET.get('modeName'),
+    #                 mode_description=request.GET.get('modeDescription'))
+        
+    #     mode.save()
+    #     modeObject = Mode.objects.get(mode_id=mode.mode_id)
+
+    #     for (key, value) in boolBtnSelectedFan.items():
+    #         if value == 1:
+    #             modeElement = ModeElements(mode_id=modeObject, mode_identifier=key, mode_type='fan')
+    #             modeElement.save()
+    #     for (key, value) in boolBtnSelectedDuct.items():
+    #         if value == 1:
+    #             modeElement = ModeElements(mode_id=modeObject, mode_identifier=key, mode_type='duct')
+    #             modeElement.save()  
+    
+    if request.method == 'GET': 
+        modeObject = Mode.objects.get(mode_id=request.GET.get('modeID'))
+        if request.GET.get('mode') == 'fan':
+            modeElement = ModeElements(mode_id=modeObject, 
+                                       mode_identifier=request.GET.get('fanButton'),
+                                       mode_command=request.GET.get('fanControl'),
+                                       mode_type='fan')
+            modeElement.save()
+        elif request.GET.get('mode') == 'duct':
+            modeElement = ModeElements(mode_id=modeObject, 
+                                       mode_identifier=request.GET.get('ductButton'),   
+                                       mode_command=request.GET.get('ductControl'),
+                                       mode_type='duct')
+            modeElement.save()
+    return JsonResponse({'status': 'success'})
+
+def getModes(request):
+    return JsonResponse(list(Mode.objects.all() .values()), safe=False)  
+    
+def executeMode(request):
+    if request.method == 'GET':
+        modeObject = Mode.objects.get(mode_id=request.GET.get('modeID'))
+        modeElements = ModeElements.objects.filter(mode_id=modeObject)
+        print(modeObject)
+        print(modeElements)
+        json.dumps(modeElements)
+        for modeElement in modeElements:
+            topic = 'command'
+            client = paho.Client()
+            client.connect(broker, port)
+            command = json.dumps({modeElement.mode_command: {modeElement.mode_identifier: 1}})
+            print(f"Command: {command}")
+            client.publish(topic, command)
+            time.sleep(10)
+            
+    return JsonResponse({'status': 'success'})
+
+def deleteMode(request):
+    if request.method == 'GET':
+        modeObject = Mode.objects.get(mode_id=request.GET.get('modeID'))
+        modeObject.delete()
+    return JsonResponse({'status': 'success'})   
+
+def ductsPosition(request):
+    if request.method == 'GET':
+        position = DuctPosition.objects.get(btnID=request.GET.get('btnID')).position
+        print(f'position: {position}')
+    
+    # return JsonResponse({'position': position})
+    return HttpResponse(position)
+    
+
+def ductPositionUpdate(request):
+    if request.method == 'GET':
+        ductObject = DuctPosition.objects.get(btnID=request.GET.get('btnID'))
+        ductObject.position = request.GET.get('position')
+        ductObject.save()
+        
+    return JsonResponse({'status': 'success'})

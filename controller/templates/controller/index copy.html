@@ -18,13 +18,11 @@
         </form>
     </div>
 </section> -->
-<section class="all-container">
-<section class="main-container width-100">
+
 <section class="menu">
     <h1>FAN Control</h1>
     <h1>DUCT Control</h1>
 </section>
-
 
 <section class="main">
     <section class="fan-control">
@@ -378,7 +376,7 @@
     </div>
     <!-- <div class="password">
         <label for="pass">PW</label>
-        <input type="text" type="password">
+        <input type="text" type="password">     
     </div>     -->
     <div class="duct-action">
         <a href="{% url 'semiOpenCommand' %}" class="semi-open">semi-open</a>
@@ -389,34 +387,16 @@
         <a class="addMode">Add Mode</a>
     </div>
 </section>
-</section>
-<section class="mode-side-bar display-none-property width-0">
-    <div class="title">
-        <h1>Modes</h1>
-    </div>
-</section>
-
-<section class="mode-select-side-bar display-none-property width-0">
-    <div class="title">
-        <h1>Select Mode</h1>
-    </div>
-    <div class="modes-container">
-
-    </div>
-</section>
-
-<div class="openModeSelect left-99"></div>
-</section>
 
 <script>
-    // document.addEventListener('DOMContentLoaded', ()=>{
-    //     var floor_1_1 = document.querySelector("#floor_1_1");
-    //     var floor_1_1_form = document.querySelector("#floor-1-1-form");
-    //     floor_1_1.addEventListener("Click", (event)=>{
-    //         event.preventDefault();
-    //         floor_1_1_form.submit();
-    //     });
-    // });
+    document.addEventListener('DOMContentLoaded', ()=>{
+        var floor_1_1 = document.querySelector("#floor_1_1");
+        var floor_1_1_form = document.querySelector("#floor-1-1-form");
+        floor_1_1.addEventListener("Click", (event)=>{
+            event.preventDefault();
+            floor_1_1_form.submit();
+        });
+    });
     // document.addEventListener('DOMContentLoaded', ()=> {
         
     //     var createProduct = document.querySelector("#btn");
@@ -431,78 +411,15 @@
     //     fetch('/addMode?modeName=' + modeName)
     // });
 
-    // document.querySelector('.duct-action .addMode').addEventListener('click', function() {
-    //     var addModePopUp = document.querySelector('.addModePopUp');
-    //     addModePopUp.classList.remove('display-none-property');
-    //     addModePopUp.classList.add('display-block-property');
+    document.querySelector('.duct-action .addMode').addEventListener('click', function() {
+        var addModePopUp = document.querySelector('.addModePopUp');
+        addModePopUp.classList.remove('display-none-property');
+        addModePopUp.classList.add('display-block-property');
 
-    //     document.querySelector('.createMode').addEventListener('click', function() {
-    //         var modeName = document.querySelector('.addModePopUp #modeName').value;
-    //         var modeDescription = document.querySelector('.addModePopUp #modeDescription').value;
-    //         fetch('/addMode?modeName=' + modeName + '&modeDescription=' + modeDescription)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log(data);
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    //         alert('Mode Created');
-    //         addModePopUp.classList.remove('display-block-property');
-    //         addModePopUp.classList.add('display-none-property');
-    //     });
-    // }); 
-
-    document.querySelector('.openModeSelect').addEventListener('click', function() {
-        document.querySelector('.openModeSelect').classList.toggle('left-99');
-        document.querySelector('.openModeSelect').classList.toggle('left-80');
-        document.querySelector('.mode-select-side-bar').classList.toggle('display-none-property');
-        document.querySelector('.mode-select-side-bar').classList.toggle('display-block-property');
-        document.querySelector('.mode-select-side-bar').classList.toggle('width-20');
-        document.querySelector('.mode-select-side-bar').classList.toggle('width-0');
-        document.querySelector('.main-container').classList.toggle('width-100');    
-        document.querySelector('.main-container').classList.toggle('width-80');
-
-        fetch('/getModes')
-        .then(response => response.json())
-        .then(data => {
-            
-            
-            var modeContainer = document.querySelector('.mode-select-side-bar .modes-container');
-            
-            modeContainer.innerHTML = '';
-            data.forEach(mode => {
-                modeContainer.innerHTML += `
-                    <div class="mode">
-                        <div class="mode_info">
-                            <span class='mode_id'>${mode.mode_id}</span>
-                            <span>Mode Name: ${mode.mode_name}</span>
-                        </div>
-                        <div class="mode_delete">
-                            <span class="material-symbols-outlined">
-                                delete
-                            </span>
-                        </div>
-                    </div>
-                `;
-            });
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    });
-
-    // document.querySelectorAll('.mode-select-side-bar .modes-container .mode').forEach(element => {
-    //     element.addEventListener('click', function() {
-    //         console.log("clicked"); 
-    //     });
-    // });
-
-    document.querySelector('.mode-select-side-bar .modes-container').addEventListener('click', function(event) {
-        console.log(event.target);
-        if(event.target.classList.contains('mode_info')){
-            var mode_id = event.target.querySelector('.mode_id').innerHTML;
-            fetch('/executeMode?modeID=' + mode_id) 
+        document.querySelector('.createMode').addEventListener('click', function() {
+            var modeName = document.querySelector('.addModePopUp #modeName').value;
+            var modeDescription = document.querySelector('.addModePopUp #modeDescription').value;
+            fetch('/addMode?modeName=' + modeName + '&modeDescription=' + modeDescription)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -510,211 +427,20 @@
             .catch(error => {
                 console.log(error);
             });
-        }
-        
-    });
-    
-    var mode_id = null;
-    var addModeEnabled = document.querySelector('.all-container').classList.contains('adding');
-
-    document.querySelector('.duct-action .addMode').addEventListener('click', function(event) {
-        event.preventDefault();
-        // document.querySelector('.all-container').classList.toggle('adding');
-        
-        if (document.querySelector('.mode-side-bar').classList.contains('display-none-property')){
-            document.querySelector('.mode-side-bar').classList.remove('display-none-property');
-            document.querySelector('.mode-side-bar').classList.add('display-block-property');
-
-            document.querySelector('.mode-side-bar').classList.toggle('width-20');
-            document.querySelector('.mode-side-bar').classList.toggle('width-0');
-            document.querySelector('.main-container').classList.toggle('width-100');
-            document.querySelector('.main-container').classList.toggle('width-80');
-
-            document.querySelector('.all-container').classList.toggle('adding');
-            addModeEnabled = document.querySelector('.all-container').classList.contains('adding');
-            fetch('/createMode')
-            .then(response => response.json())
-            .then(data => {
-                mode_id = data.mode_id;
-                console.log(mode_id);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        }   
-        else {
-            document.querySelector('.mode-side-bar').classList.remove('display-block-property');
-            document.querySelector('.mode-side-bar').classList.add('display-none-property');
-
-            document.querySelector('.mode-side-bar').classList.toggle('width-20');
-            document.querySelector('.mode-side-bar').classList.toggle('width-0');
-            document.querySelector('.main-container').classList.toggle('width-100');
-            document.querySelector('.main-container').classList.toggle('width-80');
-            // addModeEnabled = document.querySelector('.all-container').classList.contains('adding');
-        }
-        
-        
-    });
-    // var fanButtons = document.querySelectorAll('.fan-control input[type="submit"]');
-    //     fanButtons.forEach(element => {
-    //         element.addEventListener('click', function(event) {
-    //             event.preventDefault();
-            
-    //             console.log(element);
-    //         });
-    //     });
-    
-    
-
-    // document.querySelector('.mode-select-side-bar .modes-container').addEventListener('click', function(event) {
-    //     var mode_id = event.target.parentElement.parentElement.querySelector('.mode_id').innerHTML;
-        
-    //     fetch('/deleteMode?modeID=' + mode_id)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         fetch('/getModes')
-    //         .then(response => response.json())
-    //         .then(data => {              
-    //             var modeContainer = document.querySelector('.mode-select-side-bar .modes-container');
-                
-    //             modeContainer.innerHTML = '';
-    //             data.forEach(mode => {
-    //                 modeContainer.innerHTML += `
-    //                     <div class="mode">
-    //                         <div class="mode_info">
-    //                             <span class='mode_id'>${mode.mode_id}</span>
-    //                             <span>Mode Name: ${mode.mode_name}</span>
-    //                         </div>
-    //                         <div class="mode_delete">
-    //                             <span class="material-symbols-outlined">
-    //                                 delete
-    //                             </span>
-    //                         </div>
-    //                     </div>
-    //                 `;
-    //             });
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     });
-
-        
-    // });
-
-    var fanButton = null;
-    var fanControl = null;
-    var fanButtons = document.querySelectorAll('.fan-control input[type="submit"]');
-    fanButtons.forEach(element => {
-        element.addEventListener('click', function(event) {
-            if (addModeEnabled) {
-                event.preventDefault();   
-                fanButton = element.parentElement.querySelector('input[type="text"]').value;
-            }
-            else {
-                console.log('submit');
-            }
+            alert('Mode Created');
+            addModePopUp.classList.remove('display-block-property');
+            addModePopUp.classList.add('display-none-property');
         });
+    }); 
+    document.querySelector('.addModePopUp .closeBtn').addEventListener('click', function() {
+        var addModePopUp = document.querySelector('.addModePopUp');
+        addModePopUp.classList.remove('display-block-property');
+        addModePopUp.classList.add('display-none-property');
     });
 
-    var fanControlBtns = document.querySelectorAll('.footer .fan-action a');
-    fanControlBtns.forEach(element => {
-        element.addEventListener('click', function(event) {
-            if (addModeEnabled) {
-                event.preventDefault();
-                fanControl = element.classList[0];
-                if (fanButton && fanControl) {
-                    fetch('/addMode?mode=fan&modeID=' + mode_id + '&fanButton=' + fanButton + '&fanControl=' + fanControl) 
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-                    document.querySelector('.mode-side-bar').innerHTML += `
-                        <div class="mode">
-                            <span>Mode ID: ${mode_id}</span>
-                            <span>${fanButton}</span>
-                            <span>${fanControl}</span>
-                        </div>                
-                    `;
-                    fanButton = null;
-                    fanControl = null;
-                }
-                else {
-                    console.log('submit');
-                }
-
-                
-                fanButton = null;
-                fanControl = null;
-            }
-            else {
-                console.log('submit');
-            }
-        });
-    });
-
-    var ductButton = null;
-    var ductControl = null;
-    var ductButtons = document.querySelectorAll('.duct-control .duct-action a');
-    ductButtons.forEach(element => {
-        element.addEventListener('click', function(event) {
-            if (addModeEnabled) {
-                event.preventDefault();
-                ductButton = element.classList[0];
-            }
-            else {
-                console.log('submit');
-            }
-        }); 
-    });   
-
-    var ductControlBtns = document.querySelectorAll('.footer .duct-action a');
-    ductControlBtns.forEach(element => {
-        element.addEventListener('click', function(event) {
-            if (addModeEnabled) {
-                event.preventDefault();
-                ductControl = element.classList[0];
-                if (ductButton && ductControl) {
-                    fetch('/addMode?mode=duct&modeID=' + mode_id + '&ductButton=' + ductButton + '&ductControl=' + ductControl) 
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-
-                    document.querySelector('.mode-side-bar').innerHTML += `
-                        <div class="mode">
-                            <span>${mode_id}</span>
-                            <span>${ductButton}</span>
-                            <span>${ductControl}</span>
-                        </div>                
-                    `;
-
-                    ductButton = null;
-                    ductControl = null;
-                }
-                else {
-                    console.log('submit');
-                }
-                ductButton = null;
-                ductControl = null;
-            }
-            else {
-                console.log('submit');
-            }
-        });
-    });
     
     
-    
+
 </script>
 
 {% endblock %}

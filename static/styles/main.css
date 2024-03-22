@@ -463,6 +463,10 @@ header .container {
     padding-bottom: 1vh;
 }
 
+.footer .addMode {
+    width: 15% !important;
+}
+
 .footer a:hover {
     border: 3px solid black;
     color: black;
@@ -499,6 +503,7 @@ header .container {
 .duct-action input {
     width: 10%;
 }
+
 
 .fan-control input[type="text"] {
     display: none;
@@ -604,4 +609,174 @@ header .container {
 
 .login-container .login form button:hover {
     background-color: Gold;
+}
+
+.addModePopUp {
+    background-color: #fff;
+    border: 2px solid Gold;
+    border-radius: 5px;
+    position: absolute;
+    width: 40%;
+    height: 44vh;
+    top: 25vh;
+    left: 25%;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.addModePopUp div {
+    margin-bottom: 5vh;
+}
+
+.addModePopUp div input {
+    border-radius: 3px;
+}
+
+.addModePopup div textarea {
+    border-radius: 3px;
+    border: 3px solid black;
+}
+
+.addModePopUp button {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.addModePopUp button:hover {
+    background-color: Gold;
+    font-weight: bold;
+    cursor: pointer;
+}   
+
+.display-none-property {
+    display: none;
+}
+
+.display-block-property {
+    display: block;
+}   
+
+.modes-container {
+    display: flex;
+}
+.all-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.main-container {
+    /* width: 100%; */
+}
+
+.mode-side-bar {
+    /* width: 20%; */
+    background: #fff;
+    height: 100vh;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.width-80 {
+    width: 80%;
+}
+
+.width-20 {
+    width: 20%;
+}   
+
+.width-0 {
+    width: 0;
+}
+
+.mode-side-bar .title {
+    width: 99%;
+    height: 5vh;
+    background-color:rgb(68, 114, 196);
+    color: #fff;
+    font-size: 1.5em;
+    line-height: 5vh;
+    text-align: center;
+    border: 2px solid Gold;
+}
+
+.openModeSelect {
+    position: absolute;
+    top: 50vh;
+    /* left:99%; */
+    background-color: Gold;
+    width: 1%;
+    height: 5vh;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.left-99 {
+    left: 99%;
+}
+
+.left-80 {
+    left: 78.5%;
+}
+
+.mode-select-side-bar .title {
+    background-color:rgb(68, 114, 196);
+    font-family: 'open sans', sans-serif;   
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    height: 5vh;
+    line-height: 5vh;
+    border-bottom: 2px solid Gold;
+    border-left: 2px solid Gold;
+}
+
+.mode-select-side-bar .modes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width:none;
+}
+
+.mode-select-side-bar .modes-container .mode {
+    width: 70%;
+    height: 8vh;
+    margin-left: 10%;
+    background-color:rgb(68, 114, 196);
+    color: #fff;
+    font-size: 1.1em;
+    font-family: 'open sans', sans-serif;
+    margin-bottom: 1vh;
+    border-radius: 5px;
+    cursor: pointer;    
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;    
+}
+
+.mode-select-side-bar .mode_delete {
+    line-height: 8vh;
+    text-align: center;
+}
+
+.mode-select-side-bar .modes-container .mode:nth-child(1) {
+    margin-top: 5vh;
+}
+
+.mode-select-side-bar .modes-container .mode span {
+    display: block;
+    width: 100%;
+    margin-bottom: 2vh;
+}
+.addMode {
+    cursor: pointer;
 }
