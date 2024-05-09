@@ -27,10 +27,12 @@ class Command(BaseCommand):
             # temperature = data.get('temperature')
             # humidity = data.get('humidity')
             print(f"Receieved data : {msg.payload.decode('utf-8')}")
+            print(f"Userdata : {userdata} client: {msg.topic} ")
             data_lst =  msg.payload.decode('utf-8').split(' ')
+            print(data_lst) 
             # Save to database
             try: 
-                sensorData = SensorData(timestamp=datetime.datetime.now(),
+                sensorData = SensorData(timestamp=datetime.now(),
                                     temperature=data_lst[2],
                                     humidity=data_lst[3],
                                     pressure=data_lst[4],
@@ -46,7 +48,7 @@ class Command(BaseCommand):
                 sensorData.save()
                 print("Successfully saved sensor fdata to database!")
             except Exception as e:
-                pass
+                print(f"Exception occured : {e}")
         client.on_connect = on_connect
         client.on_message = on_message
 
