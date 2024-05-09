@@ -29,7 +29,7 @@ class ModeElements(models.Model):
     mode_command = models.CharField(max_length=20, null=True, blank=True)
     mode_type = models.CharField(max_length=5, null=True, blank=True)  # fan or duct
 
-class SensorData(models.Model):
+class SensorData1(models.Model):
     timestamp = models.DateTimeField(null=True, blank=True)
     temperature = models.FloatField()
     humidity = models.FloatField()
@@ -56,3 +56,77 @@ class SensorData(models.Model):
     #         'aqi': data_lst[8],
     #         'tvoc': data_lst[9],
     #         'eco2': data_lst[1
+
+class SensorData2(models.Model):
+    timestamp = models.DateTimeField(null=True, blank=True)
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    pressure = models.FloatField()
+    altitude = models.FloatField()
+    lux = models.FloatField()
+    dustDensity = models.FloatField()
+    windSpeed = models.FloatField(null=True, blank=True)
+    status = models.CharField(max_length=200, null=True, blank=True)
+    aqi = models.FloatField(null=True, blank=True)
+    tvoc = models.FloatField(null=True, blank=True)
+    eco2 = models.FloatField(null=True, blank=True)
+
+
+class SensorData3(models.Model):
+    timestamp = models.DateTimeField(null=True, blank=True)
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    pressure = models.FloatField()
+    altitude = models.FloatField()
+    lux = models.FloatField()
+    dustDensity = models.FloatField()
+    windSpeed = models.FloatField(null=True, blank=True)
+    status = models.CharField(max_length=200, null=True, blank=True)
+    aqi = models.FloatField(null=True, blank=True)
+    tvoc = models.FloatField(null=True, blank=True)
+    eco2 = models.FloatField(null=True, blank=True)
+
+
+class SensorData4(models.Model):
+    timestamp = models.DateTimeField(null=True, blank=True)
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    pressure = models.FloatField()
+    altitude = models.FloatField()
+    lux = models.FloatField()
+    dustDensity = models.FloatField()
+    windSpeed = models.FloatField(null=True, blank=True)
+    status = models.CharField(max_length=200, null=True, blank=True)
+    aqi = models.FloatField(null=True, blank=True)
+    tvoc = models.FloatField(null=True, blank=True)
+    eco2 = models.FloatField(null=True, blank=True)
+
+
+class SensorData5(models.Model):
+    timestamp = models.DateTimeField(null=True, blank=True)
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    pressure = models.FloatField()
+    altitude = models.FloatField()
+    lux = models.FloatField()
+    dustDensity = models.FloatField()
+    windSpeed = models.FloatField(null=True, blank=True)
+    status = models.CharField(max_length=200, null=True, blank=True)
+    aqi = models.FloatField(null=True, blank=True)
+    tvoc = models.FloatField(null=True, blank=True)
+    eco2 = models.FloatField(null=True, blank=True)
+
+
+class SensorData6(models.Model):
+    timestamp = models.DateTimeField(null=True, blank=True)
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    pressure = models.FloatField()
+    altitude = models.FloatField()
+    lux = models.FloatField()
+    dustDensity = models.FloatField()
+    windSpeed = models.FloatField(null=True, blank=True)
+    status = models.CharField(max_length=200, null=True, blank=True)
+    aqi = models.FloatField(null=True, blank=True)
+    tvoc = models.FloatField(null=True, blank=True)
+    eco2 = models.FloatField(null=True, blank=True)
