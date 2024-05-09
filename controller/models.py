@@ -29,3 +29,30 @@ class ModeElements(models.Model):
     mode_command = models.CharField(max_length=20, null=True, blank=True)
     mode_type = models.CharField(max_length=5, null=True, blank=True)  # fan or duct
 
+class SensorData(models.Model):
+    timestamp = models.DateTimeField(null=True, blank=True)
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    pressure = models.FloatField()
+    altitude = models.FloatField()
+    lux = models.FloatField()
+    dustDensity = models.FloatField()
+    windSpeed = models.FloatField(null=True, blank=True)
+    status = models.CharField(max_length=200, null=True, blank=True)
+    aqi = models.FloatField(null=True, blank=True)
+    tvoc = models.FloatField(null=True, blank=True)
+    eco2 = models.FloatField(null=True, blank=True)
+
+
+
+    # rature': data_lst[0],
+    #         'pressure': data_lst[1],
+    #         'altitude': data_lst[2],
+    #         'humidity': data_lst[3],
+    #         'lux': data_lst[4],
+    #         'dustDensity': data_lst[5],
+    #         'windSpeed': data_lst[6],
+    #         'status': data_lst[7],
+    #         'aqi': data_lst[8],
+    #         'tvoc': data_lst[9],
+    #         'eco2': data_lst[1
