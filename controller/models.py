@@ -130,3 +130,6 @@ class SensorData6(models.Model):
     aqi = models.FloatField(null=True, blank=True)
     tvoc = models.FloatField(null=True, blank=True)
     eco2 = models.FloatField(null=True, blank=True)
+
+class DuctMaxValue(models.Model):
+    max_value = models.FloatField(null=True, blank=True)
