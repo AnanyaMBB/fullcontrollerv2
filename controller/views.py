@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
 from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements
@@ -297,7 +298,7 @@ def executeMode(request):
         modeElements = ModeElements.objects.filter(mode_id=modeObject)
         print(modeObject)
         print(modeElements)
-        json.dumps(modeElements)
+        #json.dumps(modeElements)
         for modeElement in modeElements:
             topic = 'command'
             client = paho.Client()
