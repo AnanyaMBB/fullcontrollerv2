@@ -29,5 +29,7 @@ urlpatterns = [
     path('executeMode', views.executeMode, name='executeMode'),
     path('deleteMode', views.deleteMode, name='deleteMode'),
     path('ductsPosition', views.ductsPosition, name='ductsPosition'),
-    path('ductPositionUpdate/', views.ductPositionUpdate, name='ductPositionUpdate')
+    path('ductPositionUpdate/', views.ductPositionUpdate, name='ductPositionUpdate'),
+    path('sensorDataEntry/', views.sensorDataEntry, name='sensorDataEntry'),
+    path('getDuctMaxValue/', views.getDuctMaxValue, name='getDuctMaxValue'),
 ]

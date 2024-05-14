@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
-from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, SensorData, DuctMaxValue
+from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue
 from django.contrib.auth.models import User
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
@@ -426,6 +426,7 @@ def sensorDataEntry(request):
                                 eco2=request.GET.get('eco2'))
 
         sensorData.save()
+        
     return JsonResponse({'status': 'success'})
 
 def getDuctMaxValue(request):   

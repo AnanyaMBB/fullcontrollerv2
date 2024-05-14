@@ -67,12 +67,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tt_btn_1" >
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_1 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tt_btn_1 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tt_btn_2">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_2 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tt_btn_2 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -80,12 +80,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tt_btn_3">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_3 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_3 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tt_btn_3 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tt_btn_4">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_4 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_4 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tt_btn_4 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -93,12 +93,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tt_btn_5">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_5 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_5 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tt_btn_5 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tt_btn_6">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_6 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tt_btn_6 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tt_btn_6 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -108,12 +108,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tb_btn_1">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_1 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tb_btn_1 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tb_btn_2">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_2 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tb_btn_2 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -121,12 +121,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tb_btn_3">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_3 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_3 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tb_btn_3 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tb_btn_4">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_4 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_4 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tb_btn_4 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -134,12 +134,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tb_btn_5">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_5 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_5 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tb_btn_5 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_tb_btn_6">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_6 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_tb_btn_6 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_tb_btn_6 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -152,12 +152,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bt_btn_1">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_1 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bt_btn_1 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bt_btn_2">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_2 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bt_btn_2 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -165,12 +165,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bt_btn_3">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_3 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_3 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bt_btn_3 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bt_btn_4">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_4 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_4 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bt_btn_4 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -178,12 +178,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bt_btn_5">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_5 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_5 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bt_btn_5 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bt_btn_6">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_6 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bt_btn_6 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bt_btn_6 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -193,12 +193,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bb_btn_1">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_1 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bb_btn_1 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bb_btn_2">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_2 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bb_btn_2 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -206,12 +206,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bb_btn_3">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_3 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_3 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bb_btn_3 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bb_btn_4">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_4 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_4 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bb_btn_4 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
@@ -219,12 +219,12 @@
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bb_btn_5">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_5 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_5 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bb_btn_5 == 1 %} disabled {% endif %}>
                         </form>
                         <form method="POST" action="{% url 'indexPage' %}">
                             {% csrf_token %}
                             <input type="text" name="q" value="ns_bb_btn_6">
-                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_6 == 1 %} class="selectedBtn" {% endif %}>
+                            <input type="submit" value="" {% if boolBtnSelectedFan.ns_bb_btn_6 == 1 %} class="selectedBtn" {% endif %} {%if disabledFan.ns_bb_btn_6 == 1 %} disabled {% endif %}>
                         </form>
                         
                     </div>
