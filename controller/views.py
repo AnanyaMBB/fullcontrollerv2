@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
 from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue
@@ -357,7 +358,7 @@ def executeMode(request):
         modeElements = ModeElements.objects.filter(mode_id=modeObject)
         print(modeObject)
         print(modeElements)
-        
+
         #json.dumps(modeElements)
         for modeElement in modeElements:
             topic = 'command'
@@ -397,7 +398,7 @@ def sensorDataEntry(request):
     if request.method == 'GET':
         # print("===?" + str(request.GET.get('temperature').lstrip().split(' ')[0]))
         #Time Stamp, Status, Altitude, Temperature,Humidity,Pressure, Air Speed, eCO2, TVOC, AQI, Dust Sensor, Light Sensor
-        print(f"{datetime.datetime.now()} {request.GET.get('status')} {request.GET.get('altitude')} {request.GET.get('temperature')} {request.GET.get('humidity')} {request.GET.get('pressure')} {request.GET.get('windSpeed')} {request.GET.get('eco2')} {request.GET.get('tvoc')} {request.GET.get('aqi')} {request.GET.get('dustDensity')} {request.GET.get('lux')}")
+        #print(f"{datetime.datetime.now()} {request.GET.get('status')} {request.GET.get('altitude')} {request.GET.get('temperature')} {request.GET.get('humidity')} {request.GET.get('pressure')} {request.GET.get('windSpeed')} {request.GET.get('eco2')} {request.GET.get('tvoc')} {request.GET.get('aqi')} {request.GET.get('dustDensity')} {request.GET.get('lux')}
         
         # sensorData = SensorData(timestamp=datetime.datetime.now(),
         #                         temperature=request.GET.get('temperature').lstrip().split(' ')[0],
@@ -437,3 +438,4 @@ def getDuctMaxValue(request):
         else:
             max_value = None  # or set a default value
     return JsonResponse({'ductMaxValue': max_value})
+

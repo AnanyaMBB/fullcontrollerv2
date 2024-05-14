@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand
 import paho.mqtt.client as mqtt
 from controller.models import SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6
 from django.utils.timezone import now
-from datetime import datetime 
+import datetime 
 
 class Command(BaseCommand):
     help = 'Starts an MQTT client to listen for incoming data and saves it to the database'
@@ -33,6 +33,8 @@ class Command(BaseCommand):
             # data = json.loads(msg.payload.decode('utf-8'))
             # temperature = data.get('temperature')
             # humidity = data.get('humidity')
+
+           
             # print(f"Receieved data : {msg.payload.decode('utf-8')}")
             data_lst =  msg.payload.decode('utf-8').split(' ')
             
@@ -135,7 +137,7 @@ class Command(BaseCommand):
                     sensorData.save()
                 print("Successfully saved sensor fdata to database!")
             except Exception as e:
-                pass
+                print(f"Exception occured : {e}")
         client.on_connect = on_connect
         client.on_message = on_message
 
