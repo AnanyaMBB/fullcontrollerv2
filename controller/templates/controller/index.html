@@ -6,7 +6,22 @@
     <div class="container">
         <h1>IRIS Ventilation System Control Interface</h1>
         <!-- <button>Logout</button> -->
+        
+    </div>
+    <div class="lighting">
         <a href="{% url 'logoutPage' %}">Logout</a>
+        <!-- <span class="material-symbols-outlined">
+            wb_incandescent
+        </span> -->
+    </div>
+</section>
+
+<section class="nav">
+    <div class="ventilation-btn">
+        <span>Ventilation</span>
+    </div>
+    <div class="lighting-btn">
+        <span>Lighting</span>
     </div>
 </section>
 
@@ -18,7 +33,7 @@
         </form>
     </div>
 </section> -->
-<section class="all-container">
+<section class="all-container display-none-property">
 <section class="main-container width-100">
 <section class="menu">
     <h1>FAN Control</h1>
@@ -381,11 +396,12 @@
         <input type="text" type="password">
     </div>     -->
     <div class="duct-action">
+        <a href="{% url 'semiCloseCommand' %}" class="semi-close">semi-close</a>
         <a href="{% url 'semiOpenCommand' %}" class="semi-open">semi-open</a>
         <a href="{% url 'openCommand' %}" class="open">Open</a>
         <input type="text" class="open-amount">
         <a href="{% url 'closeCommand' %}" class="close">Close</a>
-        <a href="{% url 'ductStatusCommand' %}" class="status">Status</a>
+        <!-- <a href="{% url 'ductStatusCommand' %}" class="status">Status</a> -->
         <a class="addMode">Add Mode</a>
     </div>
 </section>
@@ -407,6 +423,102 @@
 
 <div class="openModeSelect left-99"></div>
 </section>
+
+<section class="lighting-container display-block-property">
+    <div class="numbering">
+        <div class="1">1</div>
+        <div class="2">2</div>
+        <div class="3">3</div>
+        <div class="4">4</div>
+        <div class="5">5</div>
+    </div>
+    <div class="lighting-rows">
+        <div class="row1">
+            <div class="light_1 {% if boolBtnSelectedLight.light_1 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_2 {% if boolBtnSelectedLight.light_2 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_3 {% if boolBtnSelectedLight.light_3 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_4 {% if boolBtnSelectedLight.light_4 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_5 {% if boolBtnSelectedLight.light_5 == 1 %} selectedLightBtn {% endif %}"></div>
+        </div>
+        <div class="row2">
+            <div class="light_6 {% if boolBtnSelectedLight.light_6 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_7 {% if boolBtnSelectedLight.light_7 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_8 {% if boolBtnSelectedLight.light_8 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_9 {% if boolBtnSelectedLight.light_9 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_10 {% if boolBtnSelectedLight.light_10 == 1 %} selectedLightBtn {% endif %}"></div>
+        </div>
+        <div class="row3">
+            <div class="light_11 {% if boolBtnSelectedLight.light_11 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_12 {% if boolBtnSelectedLight.light_12 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_13 {% if boolBtnSelectedLight.light_13 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_14 {% if boolBtnSelectedLight.light_14 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_15 {% if boolBtnSelectedLight.light_15 == 1 %} selectedLightBtn {% endif %}"></div>
+        </div>
+    </div>
+    <div class="control-btns">
+        <div class="col1">
+            <div class="select-btn">SELECT</div>
+            <div class="onoff">
+                <div class="on-btn">ON</div>
+                <div class="off-btn">OFF</div>
+            </div>
+        </div>
+        <div class="col2">
+            <div class="save-btn">SAVE AS</div>
+            <div class="apply-btn">APPLY</div>
+        </div>
+        <div class="col3">
+            <select>
+                {% for mode in lightModes %}
+                    <option value="{{ mode.id }}">{{ mode.mode_name }}</option>
+                {% endfor %}
+            </select>
+            <input type="text" name="modeName" id="modeName" class="display-none-property">
+        </div>
+        <div class="col4">
+            <div class="slider-container">
+                <input type="range" name="brightness" id="brightness" min="1" max="100">
+            </div>
+            <div class="color-container">
+                <input type="color" name="color" id="color">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="{% if lightOverlayOpened == 0%} display-block-property {% endif %}">
+    <section class="lighting-overlay display-block-property">
+        <div class="container">
+            <div class="left">
+                <a href="{% url 'light' 'light_1' %}" id="light_1" class="light_1 {% if boolBtnSelectedLight.light_1 == 1 %} selectedLightBtn {% endif %}"></a>
+                <a href="{% url 'light' 'light_2' %}" id="light_2" class="light_2 {% if boolBtnSelectedLight.light_2 == 1 %} selectedLightBtn {% endif %}"></a>
+                <a href="{% url 'light' 'light_3' %}" id="light_3" class="light_3 {% if boolBtnSelectedLight.light_3 == 1 %} selectedLightBtn {% endif %}"></a>
+                <a href="{% url 'light' 'light_4' %}" id="light_4" class="light_4 {% if boolBtnSelectedLight.light_4 == 1 %} selectedLightBtn {% endif %}"></a>
+                <a href="{% url 'light' 'light_5' %}" id="light_5" class="light_5 {% if boolBtnSelectedLight.light_5 == 1 %} selectedLightBtn {% endif %}"></a>
+                <a href="{% url 'light' 'light_6' %}" id="light_6" class="light_6 {% if boolBtnSelectedLight.light_6 == 1 %} selectedLightBtn {% endif %}"></a>
+                <a href="{% url 'light' 'light_7' %}" id="light_7" class="light_7 {% if boolBtnSelectedLight.light_7 == 1 %} selectedLightBtn {% endif %}"></a>
+                <a href="{% url 'light' 'light_8' %}" id="light_8" class="light_8 {% if boolBtnSelectedLight.light_8 == 1 %} selectedLightBtn {% endif %}"></a>
+                <a href="{% url 'light' 'light_9' %}" id="light_9" class="light_9 {% if boolBtnSelectedLight.light_9 == 1 %} selectedLightBtn {% endif %}"></a>
+            </div>
+            <div class="right">
+                <div class="title">
+                    <h1>Lighting Control</h1>
+                </div>
+                <div class="selected-light"></div>
+                <div class="mode-select">
+                    <div class="mode-select-title">
+                        <h1>Select Mode</h1>
+                    </div>
+                    <div class="modes-container">
+                        <input type="color">
+                    </div>
+                </div>
+                <a class="on">Send</a>
+                <a class="off">Close</a>
+            </div>
+        </div>
+    </section>
+</section> -->
 
 <script>
     // document.addEventListener('DOMContentLoaded', ()=>{
@@ -712,9 +824,247 @@
             }
         });
     });
+
+    let lightingOverlay = document.querySelector('.lighting-overlay');
+    document.querySelector('.header .lighting').addEventListener('click', function() {
+        // lightingOverlay.classList.toggle('display-none-property');
+        // lightingOverlay.classList.toggle('display-block-property');
+    });
+
+    // let lights = document.querySelectorAll('.lighting-overlay .container .left div');
+    // lights.forEach(element => {
+    //     element.addEventListener('click', function() {
+    //         element.classList.toggle('selectedLightBtn');
+    //     });
+    // });
+
     
+    // let lightSend = document.querySelector('.lighting-overlay .container .right .on');
+    // let colorSelector = document.querySelector('.lighting-overlay .container .right input[type="color"]');
+
+    // lightSend.addEventListener('click', function() {
+    //     console.log(colorSelector);
+    //     console.log(colorSelector.value);
+    //     let colorValue = colorSelector.value;   
+        
+    //     let r = parseInt(colorValue.substr(1, 2), 16);
+    //     let g = parseInt(colorValue.substr(3, 2), 16);
+    //     let b = parseInt(colorValue.substr(5, 2), 16);
+
+    //     r /= 255;
+    //     g /= 255; 
+    //     b /= 255;
+        
+    //     if (r > 0.04045) {
+    //         r = Math.pow((r + 0.055) / (1.0 + 0.055), 2.4);
+    //     }
+    //     else {
+    //         r = r / 12.92;
+    //     }
+
+    //     if (g > 0.04045) {
+    //         g = Math.pow((g + 0.055) / (1.0 + 0.055), 2.4);
+    //     }
+    //     else {
+    //         g = g / 12.92;
+    //     }
+
+    //     if (b > 0.04045) {
+    //         b = Math.pow((b + 0.055) / (1.0 + 0.055), 2.4);
+    //     }
+    //     else {
+    //         b = b / 12.92;
+    //     }
+
+    //     var X = r * 0.664511 + g * 0.154324 + b * 0.162028;
+    //     var Y = r * 0.283881 + g * 0.668433 + b * 0.047685;
+    //     var Z = r * 0.000088 + g * 0.072310 + b * 0.986039;
+    //     var x = X / (X + Y + Z);
+    //     var y = Y / (X + Y + Z);
+
+    //     // fetch('/executeLightCommand?color=' + encodeURIComponent(colorValue));
+    //     fetch('/executeLightCommand?x=' + x + '&y=' + y + '&on=true');
+    // });
+
+    // let lightOff = document.querySelector('.lighting-overlay .container .right .off');
+    // lightOff.addEventListener('click', function() {
+    //     fetch('/executeLightCommand?x=0&y=0&on=false');
+    // });
+
+
     
+    // let lightBtns = document.querySelectorAll('.lighting-overlay .container .left a');
+    // lightBtns.forEach(element => {
+    //     element.addEventListener('click', function(event) {
+    //         event.preventDefault(); 
+    //         fetch('/light/' + element.id + '/');
+            
+    //     });
+    // });
+
+    // document.querySelector('.header .lighting').addEventListener('click', function() {
+    //     fetch('/lightOverlayUpdate');
+    // });
     
+    let ventilationBtn = document.querySelector('.nav .ventilation-btn');
+    let lightingBtn = document.querySelector('.nav .lighting-btn');
+    let allContainer = document.querySelector('.all-container');
+    let lightingContainer = document.querySelector('.lighting-container');
+
+
+    lightingBtn.addEventListener('click', function() {
+        allContainer.classList.add('display-none-property');
+        allContainer.classList.remove('display-block-property');
+        lightingContainer.classList.add('display-block-property');
+        lightingContainer.classList.remove('display-none-property');
+    });
+    
+    ventilationBtn.addEventListener('click', function() {
+        allContainer.classList.remove('display-none-property');
+        allContainer.classList.add('display-block-property');
+        lightingContainer.classList.remove('display-block-property');
+        lightingContainer.classList.add('display-none-property');
+    });
+
+    let lightBtns = document.querySelectorAll('.lighting-container .lighting-rows > div > div');
+    lightBtns.forEach(element => {
+        element.addEventListener('click', function() {
+            element.classList.toggle('selectedLightBtn');
+            fetch('/light/' + element.classList[0] + '/');
+        });
+    });
+
+    let lightOnBtn = document.querySelector('.lighting-container .control-btns .onoff .on-btn');
+    let lightOffBtn = document.querySelector('.lighting-container .control-btns .onoff .off-btn');
+    let colorSelector = document.querySelector('.lighting-container .control-btns .col4 .color-container input[type="color"]');
+    let brightnessSlider = document.querySelector('.lighting-container .control-btns .col4 .slider-container input[type="range"]');
+
+    lightOnBtn.addEventListener('click', function() {
+            let colorValue = colorSelector.value;   
+            let brightnessValue = brightnessSlider.value;
+
+            let r = parseInt(colorValue.substr(1, 2), 16);
+            let g = parseInt(colorValue.substr(3, 2), 16);
+            let b = parseInt(colorValue.substr(5, 2), 16);
+
+            r /= 255;
+            g /= 255; 
+            b /= 255;
+            
+            if (r > 0.04045) {
+                r = Math.pow((r + 0.055) / (1.0 + 0.055), 2.4);
+            }
+            else {
+                r = r / 12.92;
+            }
+
+            if (g > 0.04045) {
+                g = Math.pow((g + 0.055) / (1.0 + 0.055), 2.4);
+            }
+            else {
+                g = g / 12.92;
+            }
+
+            if (b > 0.04045) {
+                b = Math.pow((b + 0.055) / (1.0 + 0.055), 2.4);
+            }
+            else {
+                b = b / 12.92;
+            }
+
+            var X = r * 0.664511 + g * 0.154324 + b * 0.162028;
+            var Y = r * 0.283881 + g * 0.668433 + b * 0.047685;
+            var Z = r * 0.000088 + g * 0.072310 + b * 0.986039;
+            var x = X / (X + Y + Z);
+            var y = Y / (X + Y + Z);
+
+            // fetch('/executeLightCommand?color=' + encodeURIComponent(colorValue));
+            fetch('/executeLightCommand?x=' + x + '&y=' + y + '&on=true' + '&brightness=' + brightnessValue);
+    });
+
+    lightOffBtn.addEventListener('click', function() {  
+        fetch('/executeLightCommand?x=0&y=0&on=false&brightness=0');
+    });
+
+    let saveBtn = document.querySelector('.lighting-container .control-btns .col2 .save-btn');
+    let applyBtn = document.querySelector('.lighting-container .control-btns .col2 .apply-btn');
+    let modeNameInput = document.querySelector('.lighting-container .control-btns .col3 input[type="text"]');
+    saveBtn.addEventListener('click', function() {
+        modeNameInput.classList.remove('display-none-property');
+    });
+
+    applyBtn.addEventListener('click', function() {
+        let modeName = modeNameInput.value;
+        fetch('/saveLights?modeName=' + modeName + '&color=' + encodeURIComponent(colorSelector.value) + '&brightness=' + encodeURIComponent(brightnessSlider.value));
+        modeNameInput.classList.add('display-none-property');
+    });
+
+    let forms = document.querySelectorAll('.fan-control form');
+    forms.forEach(form => {
+        let idInput = form.querySelector('input[type="text"]');
+        let submitInput = form.querySelector('input[type="submit"]');
+        
+        submitInput.addEventListener('click', function(e) {
+            e.preventDefault();
+            submitInput.classList.toggle('selectedBtn');
+            fetch('/fanBtnUpdate?fanID=' + idInput.value);
+        });
+    });
+
+    let ductBtns = document.querySelectorAll('.duct-control a');
+    ductBtns.forEach(element => {
+        element.addEventListener('click', function(e) {
+            e.preventDefault();
+            element.classList.toggle('selectedBtn');
+            fetch('/index/' + element.classList[0]);
+        });
+    });
+
+    let fanSupply = document.querySelector('.footer .fan-action .supply');
+    let fanExhaust = document.querySelector('.footer .fan-action .exhaust');
+    let fanOff = document.querySelector('.footer .fan-action .off');
+    let fanStatus = document.querySelector('.footer .fan-action .status');
+    fanSupply.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch('/supplyCommand');
+    });
+    fanExhaust.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch('/exhaustCommand');
+    });
+    fanOff.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch('/offCommand');
+    });
+    fanStatus.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch('/fanStatusCommand');
+    });
+
+    let ductSemiClose = document.querySelector('.footer .duct-action .semi-close'); 
+    let ductSemiOpen = document.querySelector('.footer .duct-action .semi-open');
+    let ductOpen = document.querySelector('.footer .duct-action .open');
+    let ductClose = document.querySelector('.footer .duct-action .close');
+    ductSemiClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch('/semiCloseCommand');
+    });
+    ductSemiOpen.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch('/semiOpenCommand');
+    });
+    ductOpen.addEventListener('click', function(e) {
+        e.preventDefault();
+        let openAmount = document.querySelector('.footer .duct-action .open-amount').value;
+        fetch('/openCommand?openAmount=' + openAmount);
+    });
+    ductClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch('/closeCommand');
+    });
+
+    
+
 </script>
 
 {% endblock %}
