@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
-from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue
+from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue, LightModes
 from django.contrib.auth.models import User
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
@@ -124,6 +124,26 @@ floorSegmentDesignation = {
     'ceiling_2_2': ['ceiling_2_btn_4', 'ceiling_2_btn_5', 'ceiling_2_btn_6'],
 }
 
+boolBtnSelectedLight = {
+    'light_1': 0,
+    'light_2': 0,
+    'light_3': 0,
+    'light_4': 0,
+    'light_5': 0,
+    'light_6': 0,
+    'light_7': 0,
+    'light_8': 0,
+    'light_9': 0, 
+    'light_10': 0,
+    'light_11': 0,
+    'light_12': 0,
+    'light_13': 0,
+    'light_14': 0,
+    'light_15': 0,
+}
+
+lightOverlayOpened = 0
+
 
 def is_selected(pair):
     key, value = pair
@@ -132,7 +152,10 @@ def is_selected(pair):
 @login_required(login_url='loginPage')
 def indexPage(request):
     context = {'boolBtnSelectedFan': boolBtnSelectedFan,
-               'boolBtnSelectedDuct': boolBtnSelectedDuct}
+               'boolBtnSelectedDuct': boolBtnSelectedDuct,
+               'boolBtnSelectedLight': boolBtnSelectedLight}
+    # ,
+    #            'lightOverlayOpened': lightOverlayOpened}
     
     fanPairs = {
         'ceiling_1': ['ns_tt_btn_1', 'ns_tt_btn_2', 'ns_tt_btn_3', 'ns_bt_btn_1', 'ns_bt_btn_2', 'ns_bt_btn_3'],
@@ -158,9 +181,18 @@ def indexPage(request):
     context['disabledFan'] = disabledFan
     print(disabledFan)
 
-    if request.method == 'POST':
-        boolBtnSelectedFan[request.POST['q']] = 1 - \
-            boolBtnSelectedFan[request.POST['q']]
+    # if request.method == 'GET': 
+    #     print(f"Request GET: {request.GET}")
+    #     boolBtnSelectedFan[request.GET['fanID']] = 1 - boolBtnSelectedFan[request.GET['fanID']]
+        # boolBtnSelectedFan[request.GET['id']] = 1 - boolBtnSelectedFan[request.GET['id']]
+
+    # if request.method == 'POST':
+    #     boolBtnSelectedFan[request.POST['q']] = 1 - \
+    #         boolBtnSelectedFan[request.POST['q']]
+        
+    lightModes = LightModes.objects.all()
+    print(f"Light Modes: {lightModes.values()}")
+    context['lightModes'] = list(LightModes.objects.all().values())
 
     return render(request, 'controller/index.html', context)
 
@@ -171,6 +203,30 @@ def index(request, pk):
             boolBtnSelectedDuct[pk]
 
     return redirect(indexPage)
+
+@login_required(login_url='loginPage')
+def fanBtnUpdate(request):
+    if request.method == 'GET':
+        boolBtnSelectedFan[request.GET['fanID']] = 1 - boolBtnSelectedFan[request.GET['fanID']]
+
+    return redirect('indexPage')
+
+@login_required(login_url='loginPage')
+def light(request, pk):
+    if request.method == 'GET':
+        boolBtnSelectedLight[pk] = 1 - boolBtnSelectedLight[pk]
+        print(f"Light: {boolBtnSelectedLight}")
+
+    return redirect(indexPage)
+
+@login_required(login_url='loginPage')
+def lightOverlayUpdate(request):
+    if request.method == 'GET':
+        global lightOverlayOpened
+        lightOverlayOpened = 1 - lightOverlayOpened
+
+    return redirect('indexPage')
+
 
 def loginPage(request):
     if request.method == 'POST':
@@ -237,6 +293,17 @@ def fanStatusCommand(request):
 
     return redirect('indexPage')
 
+def semiCloseCommand(request):  
+    selectedBtns = dict(filter(is_selected, boolBtnSelectedDuct.items()))
+
+    topic = 'command'
+    client = paho.Client()
+    client.connect(broker, port)
+    command = json.dumps({'semiClose': selectedBtns})
+    client.publish(topic, command)
+
+    return redirect('indexPage')
+
 
 def semiOpenCommand(request):
     selectedBtns = dict(filter(is_selected, boolBtnSelectedDuct.items()))
@@ -285,6 +352,41 @@ def ductStatusCommand(request):
 
     return redirect('indexPage')
 
+@login_required(login_url='loginPage')
+def executeLightCommand(request):
+    if request.method == 'GET':
+        selectedBtns = dict(filter(is_selected, boolBtnSelectedLight.items()))
+        commandDict = {}
+        for key in selectedBtns.keys():
+            commandDict[key] = {'x': request.GET['x'], 'y': request.GET['y'], 'on': request.GET['on'], 'brightness': request.GET['brightness']}
+            print(commandDict)
+
+        topic = 'command'
+        client = paho.Client()
+        client.connect(broker, port)
+        command = json.dumps({'light': commandDict})
+        print(f"Light command: {command}")
+        client.publish(topic, command)
+
+    return redirect('indexPage')
+
+@login_required(login_url='loginPage')
+def saveLights(request):
+    selectedBtns = dict(filter(is_selected, boolBtnSelectedLight.items()))
+    saveStr = '' 
+    print(f"Selected Light Buttons: {selectedBtns}")
+    for key, value in selectedBtns.items(): 
+        saveStr += f"{key}:"
+    saveStr = saveStr[:-1]
+    print(f"Color: {request.GET.get('color')}")
+    lightModes = LightModes(mode_name=request.GET.get('modeName'),
+                            on_lights=saveStr,
+                            color=request.GET.get('color'),
+                            brightness=request.GET.get('brightness'))
+    lightModes.save()
+
+
+    return redirect('indexPage')
 
 def fans(request):
     print(FanButtonModel.objects.all())
@@ -397,7 +499,7 @@ def ductPositionUpdate(request):
     return JsonResponse({'status': 'success'})
 
 def sensorDataEntry(request):
-    if request.method == 'GET':
+    # if request.method == 'GET':
         # print("===?" + str(request.GET.get('temperature').lstrip().split(' ')[0]))
         #Time Stamp, Status, Altitude, Temperature,Humidity,Pressure, Air Speed, eCO2, TVOC, AQI, Dust Sensor, Light Sensor
         #print(f"{datetime.datetime.now()} {request.GET.get('status')} {request.GET.get('altitude')} {request.GET.get('temperature')} {request.GET.get('humidity')} {request.GET.get('pressure')} {request.GET.get('windSpeed')} {request.GET.get('eco2')} {request.GET.get('tvoc')} {request.GET.get('aqi')} {request.GET.get('dustDensity')} {request.GET.get('lux')}
@@ -415,20 +517,20 @@ def sensorDataEntry(request):
         #                         tvoc=request.GET.get('tvoc').lstrip().split(' ')[0],
         #                         eco2=request.GET.get('eco2').lstrip().split(' ')[0])
 
-        sensorData = SensorData(timestamp=datetime.datetime.now(),
-                                temperature=request.GET.get('temperature'),
-                                humidity=request.GET.get('humidity'),
-                                pressure=request.GET.get('pressure'),
-                                altitude=request.GET.get('altitude'),
-                                lux=request.GET.get('lux'),
-                                dustDensity=request.GET.get('dustDensity'),
-                                windSpeed=request.GET.get('windSpeed') if request.GET.get('windSpeed')!="nan" else 0,
-                                status=request.GET.get('status'),
-                                aqi=request.GET.get('aqi'),
-                                tvoc=request.GET.get('tvoc'),
-                                eco2=request.GET.get('eco2'))
+        # sensorData = SensorData(timestamp=datetime.datetime.now(),
+        #                         temperature=request.GET.get('temperature'),
+        #                         humidity=request.GET.get('humidity'),
+        #                         pressure=request.GET.get('pressure'),
+        #                         altitude=request.GET.get('altitude'),
+        #                         lux=request.GET.get('lux'),
+        #                         dustDensity=request.GET.get('dustDensity'),
+        #                         windSpeed=request.GET.get('windSpeed') if request.GET.get('windSpeed')!="nan" else 0,
+        #                         status=request.GET.get('status'),
+        #                         aqi=request.GET.get('aqi'),
+        #                         tvoc=request.GET.get('tvoc'),
+        #                         eco2=request.GET.get('eco2'))
 
-        sensorData.save()
+        # sensorData.save()
         
     return JsonResponse({'status': 'success'})
 
