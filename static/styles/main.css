@@ -49,29 +49,143 @@ table {
 
 .header {
     background-color: rgb(192, 0, 0);
-    height: 10vh;
+    height: 7vh;
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     font-weight: bolder;
     font-size: 200%;
     text-align: center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-header .container {
-    display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.header .container a {
+.header .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;    
+}
+
+
+.header .lighting a {
     font-size: 0.5em;
     text-decoration: none;
     background-color: white;
     color: black;
+    width: 10%;
+    align-self: center;
 }
+
+.header .lighting {
+    line-height: 7vh;
+    cursor: pointer;
+}
+
+.lighting-overlay {
+    position: absolute;
+    top: 15vh;
+    left: 25%;
+    width: 50%;
+    height: 60vh;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid Gold;
+}
+
+.lighting-overlay .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.lighting-overlay .left {
+    width: 80%;
+    height: 60vh;
+    border-right: 1px solid black;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 5vh;
+}
+
+.lighting-overlay .left a { 
+    display: block;
+    width: 30%;
+    height: 10vh;
+    border-radius: 5px;
+    background-color: Gold;
+}
+
+.selectedLightBtn {
+    background-color: Gold !important;
+    border: 2px solid black;
+}
+
+.lighting-overlay .right {
+    width: 20%;
+    height: 60vh;
+}
+
+.lighting-overlay .right .title {
+    width: 100%;
+    height: 5vh;
+    line-height: 5vh;
+}
+
+.lighting-overlay .right .mode-select {
+    width: 100%;
+    height: 50vh;
+}
+
+.lighting-overlay .right .mode-select .mode-select-title {
+    width: 100%;
+    height: 5vh;
+    line-height: 5vh;
+}
+
+.lighting-overlay .right .send {
+    display: block;
+    width: 100%;
+    height: 5vh;
+    background-color: black;
+    color: white;
+    line-height: 5vh;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav {
+    width: 100%;
+    height: 5vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom: 2px solid black;
+}
+
+.nav div {
+    width: 50%;
+    height: auto;
+    line-height: 5vh;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.nav div:first-child {
+    border-right: 2px solid black;
+}
+
+.nav div:hover {
+    background-color: Gold;
+}
+
 .addModel {
     position: absolute;
     width: 50%;
@@ -137,7 +251,7 @@ header .container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 71vh;
+    height: 69vh;
 }
 
 .main section {
@@ -653,11 +767,11 @@ header .container {
 }   
 
 .display-none-property {
-    display: none;
+    display: none !important;
 }
 
 .display-block-property {
-    display: block;
+    display: block !important;
 }   
 
 .modes-container {
@@ -779,4 +893,185 @@ header .container {
 }
 .addMode {
     cursor: pointer;
+}
+
+.lighting-container {
+    width: 100%;
+    height: 87.8vh;
+}
+
+.lighting-container .numbering {
+    width: 100%;
+    height: 7vh;
+    background-color: rgb(192, 0, 0);
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-evenly;
+}
+
+.lighting-container .numbering div {
+    width: 5%;
+    height: 5vh;
+    line-height: 5vh;
+    text-align: center;
+    font-weight: bold;
+    background-color: lightblue;
+    margin-top: 1vh;
+}
+
+.lighting-container .lighting-rows {
+    margin-top: 1vh;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.lighting-container .lighting-rows > div {
+    width: 100%;
+    height: 19vh;
+    background-color: lightgray;
+    border-bottom: 2px solid lightblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.lighting-container .lighting-rows > div > div:nth-of-type(even) {
+    background-color: gray;
+}
+
+.lighting-container .lighting-rows > div > div {
+    width: 8%;
+    height: 15vh; 
+    border-radius: 50%;
+    background-color: #fff; 
+    border: 2px solid darkblue;
+    margin-top: 2vh;
+    cursor: pointer;
+}
+
+.lighting-container .control-btns {
+    width: 100%;
+    height: 19vh;
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start;
+}
+
+.lighting-container .control-btns .col1 {
+    width: 15%;
+    height: 19vh;
+    border-right: 2px solid lightblue;
+}
+
+.lighting-container .control-btns .col1 .select-btn {
+    width: 90%; 
+    height: 5vh;
+    margin-left: 2.5%;
+    background-color:rgb(112, 48, 160);
+    text-align: center; 
+    line-height: 5vh;
+    color: #fff;
+    font-weight: bold; 
+    font-family: sans-serif;
+    margin-top: 1vh;
+    cursor: pointer;
+}
+
+.lighting-container .control-btns .col1 .onoff { 
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.lighting-container .control-btns .col1 .onoff div {
+    width: 44%; 
+    height: 5vh;
+    margin-left: 2.5%;
+    background-color:rgb(112, 48, 160);
+    text-align: center; 
+    line-height: 5vh;
+    color: #fff;
+    font-weight: bold; 
+    font-family: sans-serif;
+    margin-top: 1vh;
+    cursor: pointer;
+}
+
+.lighting-container .control-btns .col2 {
+    width: 15%;
+    height: 19vh;
+    border-right: 2px solid lightblue;
+}
+
+.lighting-container .control-btns .col2 div {
+    width: 90%; 
+    height: 5vh;
+    margin-left: 2.5%;
+    background-color:rgb(112, 48, 160);
+    text-align: center; 
+    line-height: 5vh;
+    color: #fff;
+    font-weight: bold; 
+    font-family: sans-serif;
+    margin-top: 1vh;
+    cursor: pointer;
+
+}
+
+.lighting-container .control-btns .col3 {
+    width: 15%;
+    height: 19vh;
+    border-right: 2px solid lightblue;
+}
+
+.lighting-container .control-btns .col3 select {
+    width: 95%;
+    height: 5vh;
+    margin-left: 2.5%;
+    margin-top: 1vh;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.lighting-container .control-btns  .col3 input {
+    width: 92.5%;
+    height: 5vh;
+    margin-top: 1vh;
+    margin-left: 2.5%;
+    font-size: 1.1em;
+}
+
+.lighting-container .control-btns .col4 {
+    width: 55%;
+    height: 19vh;
+    border-right: 2px solid lightblue;
+}
+
+.lighting-container .control-btns .col4 .slider-container {
+    width: 95%;
+    height: 5vh;
+    margin-left: 2.5%;
+    margin-top: 1vh;
+}
+
+.lighting-container .control-btns .col4 .slider-container input[type="range"] {
+    width: 100%;
+    height: 5vh;
+}
+
+.lighting-container .control-btns .col4 .color-container {
+    width: 95%;
+    height: 5vh;
+    margin-left: 2.5%;
+    margin-top: 1vh;
+}
+
+.lighting-container .control-btns .col4 .color-container input[type="color"] {
+    width: 100%;
+    height: 5vh;
+    border: none;
+    background-color: #fff;
 }
