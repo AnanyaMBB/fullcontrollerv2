@@ -133,3 +133,11 @@ class SensorData6(models.Model):
 
 class DuctMaxValue(models.Model):
     max_value = models.FloatField(null=True, blank=True)
+
+class LightModes(models.Model):
+    mode_id = models.AutoField(primary_key=True)
+    mode_name = models.CharField(max_length=200, null=True, blank=True)
+    on_lights = models.CharField(max_length=400, null=True, blank=True)
+    color = models.CharField(max_length=200, null=True, blank=True)
+    brightness = models.IntegerField(null=True, blank=True)
+    
