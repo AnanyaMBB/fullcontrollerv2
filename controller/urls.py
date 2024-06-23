@@ -38,4 +38,11 @@ urlpatterns = [
     path('ductPositionUpdate/', views.ductPositionUpdate, name='ductPositionUpdate'),
     path('sensorDataEntry/', views.sensorDataEntry, name='sensorDataEntry'),
     path('getDuctMaxValue/', views.getDuctMaxValue, name='getDuctMaxValue'),
+    path('export/', views.export_sensor_data, name='export_sensor_data'),
+    path('export/sensor1/', views.export_sensor_data1_csv, name='export_sensor_data1_csv'),
+    path('export/sensor2/', views.export_sensor_data2_csv, name='export_sensor_data2_csv'),
+    path('export/sensor3/', views.export_sensor_data3_csv, name='export_sensor_data3_csv'),
+    path('export/sensor4/', views.export_sensor_data4_csv, name='export_sensor_data4_csv'),
+    path('export/sensor5/', views.export_sensor_data5_csv, name='export_sensor_data5_csv'),
+    path('export/sensor6/', views.export_sensor_data6_csv, name='export_sensor_data6_csv'),
 ]
