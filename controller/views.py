@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
-from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue, LightModes
+from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue, LightModes, SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6   
 from django.contrib.auth.models import User
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
@@ -10,6 +10,7 @@ import paho.mqtt.client as paho
 import json
 import time
 import datetime
+import csv
 
 # broker = '146.190.138.255'
 # broker = 'localhost'
@@ -543,5 +544,40 @@ def getDuctMaxValue(request):
             max_value = None  # or set a default value
     return JsonResponse({'ductMaxValue': max_value})
 
+
+def export_sensor_data(request):
+    return render(request, 'controller/export.html')    
+
+def export_csv(model, model_name):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = f'attachment; filename="{model_name}.csv"'
+
+    writer = csv.writer(response)
+    fields = [field.name for field in model._meta.fields]
+    writer.writerow(fields)
+
+    for instance in model.objects.all():
+        row = [getattr(instance, field) for field in fields]
+        writer.writerow(row)
+
+    return response
+
+def export_sensor_data1_csv(request):
+    return export_csv(SensorData1, 'SensorData1')
+
+def export_sensor_data2_csv(request):
+    return export_csv(SensorData2, 'SensorData2')
+
+def export_sensor_data3_csv(request):
+    return export_csv(SensorData3, 'SensorData3')
+
+def export_sensor_data4_csv(request):
+    return export_csv(SensorData4, 'SensorData4')
+
+def export_sensor_data5_csv(request):
+    return export_csv(SensorData5, 'SensorData5')
+
+def export_sensor_data6_csv(request):
+    return export_csv(SensorData6, 'SensorData6')
     
 
