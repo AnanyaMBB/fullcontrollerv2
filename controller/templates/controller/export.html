@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="download-btns">
+    <a href="{% url 'export_sensor_data1_csv' %}" class="download-btn">Download Sensor Data 1</a>
+    <a href="{% url 'export_sensor_data2_csv' %}" class="download-btn">Download Sensor Data 2</a>
+    <a href="{% url 'export_sensor_data3_csv' %}" class="download-btn">Download Sensor Data 3</a>
+    <a href="{% url 'export_sensor_data4_csv' %}" class="download-btn">Download Sensor Data 4</a>
+    <a href="{% url 'export_sensor_data5_csv' %}" class="download-btn">Download Sensor Data 5</a>
+    <a href="{% url 'export_sensor_data6_csv' %}" class="download-btn">Download Sensor Data 6</a>
+</div>
+{% endblock %}
