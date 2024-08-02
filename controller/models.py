@@ -140,4 +140,12 @@ class LightModes(models.Model):
     on_lights = models.CharField(max_length=400, null=True, blank=True)
     color = models.CharField(max_length=200, null=True, blank=True)
     brightness = models.IntegerField(null=True, blank=True)
+
+class PowerIPS(models.Model):
+    sensor_ip = models.CharField(max_length=200, null=True, blank=True)
+    pi_ip = models.CharField(max_length=200, null=True, blank=True)
+    duct_1_ip = models.CharField(max_length=200, null=True, blank=True)
+    duct_2_ip = models.CharField(max_length=200, null=True, blank=True)
+    duct_3_ip = models.CharField(max_length=200, null=True, blank=True)
+    duct_4_ip = models.CharField(max_length=200, null=True, blank=True)
     

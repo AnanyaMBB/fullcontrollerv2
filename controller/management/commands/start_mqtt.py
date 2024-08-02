@@ -5,6 +5,7 @@ import paho.mqtt.client as mqtt
 from controller.models import SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6
 from django.utils.timezone import now
 import datetime
+from django.utils.timezone import now
 
 class Command(BaseCommand):
     help = 'Starts an MQTT client to listen for incoming data and saves it to the database'

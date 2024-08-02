@@ -182,6 +182,9 @@ table {
     border-right: 2px solid black;
 }
 
+.nav div:nth-of-type(2) {
+    border-right: 2px solid black;
+}
 .nav div:hover {
     background-color: Gold;
 }
@@ -530,6 +533,32 @@ table {
 .duct-control .duct-action div {
     height: 57vh;
     width: 25%;
+}
+
+.duct-control .duct-action .power-btns {
+    width: 100%;
+    height: 3vh;
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start;
+    padding-left: 10%;
+    margin-bottom: 0.5vh;
+}
+
+.duct-control .duct-action .power-btns button {
+    width: 38%;
+    background-color: #fff;
+    border: 1px solid Gold;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.duct-control .duct-action .power-btns button:nth-child(1) {
+    margin-right: 2%;
+}
+
+.duct-control .duct-action .power-btns button:hover {
+    background-color: Gold;
 }
 
 .duct-control .duct-action {
@@ -1074,4 +1103,73 @@ table {
     height: 5vh;
     border: none;
     background-color: #fff;
+}
+
+.power-container {
+    width: 100%;
+    height: 70vh;
+}
+
+.power-container .internal-container {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.power-container div {
+    width: 33.5%;
+    border-right: 1px solid gray;
+}
+
+.power-container .internal-container .title {
+    width: 100%;
+    margin-top: 2vh;
+    padding-left: 7%;
+    font-size: 1.5em;
+    font-family: 'Open sans', sans-serif;
+    border: none;
+}
+.power-container .internal-container .buttons  {
+    margin-top: 5vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.power-container .internal-container .buttons button {
+    width: 40%;
+    height: 5vh;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.power-container .internal-container .buttons button:hover {
+    background-color: Gold;
+}
+
+.power-container .internal-container .duct-power .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 5vh;
+    width: 100%;
+}
+
+.power-container .internal-container .duct-power .buttons div {
+    width: 100%;
+    height: 5vh;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+
+.power-container .internal-container .duct-power .buttons p {
+    display: block;
+    
 }

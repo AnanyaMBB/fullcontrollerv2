@@ -109,11 +109,18 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
 
-USE_I18N = True
+# USE_I18N = True
 
-USE_TZ = True
+# USE_TZ = True
+
+
+TIME_ZONE = 'Asia/Seoul'  # Sets the default time zone to Seoul (GMT+9)
+
+USE_I18N = True  # Keeps internationalization enabled
+
+USE_TZ = True  # Keeps timezone awareness enabled
 
 
 # Static files (CSS, JavaScript, Images)

@@ -23,9 +23,6 @@
     <div class="lighting-btn">
         <span>Lighting</span>
     </div>
-    <div class="power-btn">
-        <span>Power</span>
-    </div>
 </section>
 
 <!-- <section class="addModel">
@@ -55,6 +52,7 @@
                     <input type="text" name="q" value="east_top_btn_1">
                     <input type="submit" value="" {% if boolBtnSelectedFan.east_top_btn_1 == 1 %} class="selectedBtn" {% endif %} id="btn">
                 </form>
+                
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
                     <input type="text" name="q" value="east_top_btn_2">
@@ -289,11 +287,7 @@
             <h1>Ceiling 2</h1>
         </div> -->
         <div class="duct-action">
-            <div class="floor-1">  
-                <div class="power-btns">
-                    <button class="floor-1-duct-power:ON">ON</button>
-                    <button class="floor-1-duct-power:OFF">OFF</button>
-                </div>
+            <div class="floor-1">     
                 <form method="POST" action="{% url 'multipleSelect' %}" id="floor-1-1-form">
                     {% csrf_token %}
                     <input type="text" name="q" value="floor_1_1">
@@ -313,10 +307,6 @@
                 <a href="{% url 'index' 'floor_1_btn_6' %}" class="floor_1_btn_6 {% if boolBtnSelectedDuct.floor_1_btn_6 == 1 %} selectedBtn {% endif %}"></a>
             </div>
             <div class="floor-2">
-                <div class="power-btns">
-                    <button class="floor-2-duct-power:ON">ON</button>
-                    <button class="floor-2-duct-power:OFF">OFF</button>
-                </div>
                 <!-- <h1>Floor 2-1</h1>  -->
                 <form method="POST" action="{% url 'multipleSelect' %}" id="floor-2-1-form">
                     {% csrf_token %}
@@ -338,10 +328,6 @@
             </div>
             <div class="ceiling-1">
                 <!-- <h1>Ceiling 1-1</h1>  -->
-                <div class="power-btns">
-                    <button class="ceiling-1-duct-power:ON">ON</button>
-                    <button class="ceiling-1-duct-power:OFF">OFF</button>
-                </div>
                 <form method="POST" action="{% url 'multipleSelect' %}" id="ceiling-1-1-form">
                     {% csrf_token %}
                     <input type="text" name="q" value="ceiling_1_1">
@@ -361,10 +347,6 @@
                 <a href="{% url 'index' 'ceiling_1_btn_6' %}" class="ceiling_1_btn_6{% if boolBtnSelectedDuct.ceiling_1_btn_6 == 1 %} selectedBtn {% endif %}"></a>
             </div>
             <div class="ceiling-2">
-                <div class="power-btns">
-                    <button class="ceiling-2-duct-power:ON">ON</button>
-                    <button class="ceiling-2-duct-power:OFF">OFF</button>
-                </div>
                 <!-- <h1>Ceiling 2-1</h1>  -->
                 <form method="POST" action="{% url 'multipleSelect' %}" id="ceiling-2-1-form">
                     {% csrf_token %}
@@ -420,7 +402,7 @@
         <a href="{% url 'openCommand' %}" class="open">Open</a>
         <input type="text" class="open-amount">
         <a href="{% url 'closeCommand' %}" class="close">Close</a>
-        <!-- <a href="{% url 'ductStatusCommand' %}" class="status">Status</a> -->
+        <a href="{% url 'ductStatusCommand' %}" class="status">Status</a>
         <a class="addMode">Add Mode</a>
     </div>
 </section>
@@ -505,56 +487,6 @@
     </div>
 </section>
 
-<section class="power-container display-none-property">
-    <div class="internal-container">
-        <div class="sensor-power">
-            <div class="title">
-                <h1>Sensor Power</h1>
-            </div>
-            <div class="buttons">
-                <button type="button" class="sensor-board:ON">ON</button>
-                <button type="button" class="sensor-board:OFF">OFF</button>
-            </div>           
-        </div>
-        <div class="pi-power">
-            <div class="title">
-                <h1>Raspberry Pi Power</h1>
-            </div>
-            <div class="buttons">
-                <button type="button" class="pi:ON">ON</button>
-                <button type="button" class="pi:OFF">OFF</button>
-            </div>  
-        </div>
-        <div class="duct-power">
-            <div class="title">
-                <h1>Duct Power</h1>
-            </div>
-            <div class="buttons">
-                <div class="button-1 duct-btns">
-                    <p>Duct 1</p>
-                    <button type="button" class="floor-1-duct-power:ON">ON</button>
-                    <button type="button" class="floor-1-duct-power:OFF">OFF</button>
-                </div>
-                <div class="button-2 duct-btns">
-                    <p>Duct 2</p>
-                    <button type="button" class="floor-2-duct-power:ON">ON</button>
-                    <button type="button" class="floor-2-duct-power:OFF">OFF</button>
-                </div>
-                <div class="button-3 duct-btns">
-                    <p>Duct 3</p>
-                    <button type="button" class="ceiling-1-duct-power:ON">ON</button>
-                    <button type="button" class="ceiling-1-duct-power:OFF">OFF</button>
-                </div>
-                <div class="button-4 duct-btns">
-                    <p>Duct 4</p>
-                    <button type="button" class="ceiling-2-duct-power:ON">ON</button>
-                    <button type="button" class="ceiling-2-duct-power:OFF">OFF</button>
-                </div>
-            </div>  
-        </div>
-    </div>
-</section>
-
 <!-- <section class="{% if lightOverlayOpened == 0%} display-block-property {% endif %}">
     <section class="lighting-overlay display-block-property">
         <div class="container">
@@ -590,6 +522,9 @@
 </section> -->
 
 <script>
+    let forms = document.querySelectorAll('.fan-control form');
+    console.log("kfjgfkjfgkfg");
+    console.log(forms);
     // document.addEventListener('DOMContentLoaded', ()=>{
     //     var floor_1_1 = document.querySelector("#floor_1_1");
     //     var floor_1_1_form = document.querySelector("#floor-1-1-form");
@@ -977,17 +912,13 @@
     
     let ventilationBtn = document.querySelector('.nav .ventilation-btn');
     let lightingBtn = document.querySelector('.nav .lighting-btn');
-    let powerBtn = document.querySelector('.nav .power-btn');
     let allContainer = document.querySelector('.all-container');
     let lightingContainer = document.querySelector('.lighting-container');
-    let powerContainer = document.querySelector('.power-container');
 
 
     lightingBtn.addEventListener('click', function() {
         allContainer.classList.add('display-none-property');
-        powerContainer.classList.add('display-none-property');
         allContainer.classList.remove('display-block-property');
-        powerContainer.classList.remove('display-block-property');
         lightingContainer.classList.add('display-block-property');
         lightingContainer.classList.remove('display-none-property');
     });
@@ -995,19 +926,8 @@
     ventilationBtn.addEventListener('click', function() {
         allContainer.classList.remove('display-none-property');
         allContainer.classList.add('display-block-property');
-        powerContainer.classList.add('display-none-property');  
-        powerContainer.classList.remove('display-block-property');
         lightingContainer.classList.remove('display-block-property');
         lightingContainer.classList.add('display-none-property');
-    });
-
-    powerBtn.addEventListener('click', function() {
-        allContainer.classList.add('display-none-property');
-        allContainer.classList.remove('display-block-property');
-        lightingContainer.classList.add('display-none-property');
-        lightingContainer.classList.remove('display-block-property');
-        powerContainer.classList.remove('display-none-property');
-        powerContainer.classList.add('display-block-property');
     });
 
     let lightBtns = document.querySelectorAll('.lighting-container .lighting-rows > div > div');
@@ -1083,102 +1003,7 @@
         modeNameInput.classList.add('display-none-property');
     });
 
-    let forms = document.querySelectorAll('.fan-control form');
-    forms.forEach(form => {
-        let idInput = form.querySelector('input[type="text"]');
-        let submitInput = form.querySelector('input[type="submit"]');
-        
-        submitInput.addEventListener('click', function(e) {
-            e.preventDefault();
-            submitInput.classList.toggle('selectedBtn');
-            fetch('/fanBtnUpdate?fanID=' + idInput.value);
-        });
-    });
-
-    let ductBtns = document.querySelectorAll('.duct-control a');
-    ductBtns.forEach(element => {
-        element.addEventListener('click', function(e) {
-            e.preventDefault();
-            element.classList.toggle('selectedBtn');
-            fetch('/index/' + element.classList[0]);
-        });
-    });
-
-    let fanSupply = document.querySelector('.footer .fan-action .supply');
-    let fanExhaust = document.querySelector('.footer .fan-action .exhaust');
-    let fanOff = document.querySelector('.footer .fan-action .off');
-    let fanStatus = document.querySelector('.footer .fan-action .status');
-    fanSupply.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/supplyCommand');
-    });
-    fanExhaust.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/exhaustCommand');
-    });
-    fanOff.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/offCommand');
-    });
-    fanStatus.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/fanStatusCommand');
-    });
-
-    let ductSemiClose = document.querySelector('.footer .duct-action .semi-close'); 
-    let ductSemiOpen = document.querySelector('.footer .duct-action .semi-open');
-    let ductOpen = document.querySelector('.footer .duct-action .open');
-    let ductClose = document.querySelector('.footer .duct-action .close');
-    ductSemiClose.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/semiCloseCommand');
-    });
-    ductSemiOpen.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/semiOpenCommand');
-    });
-    ductOpen.addEventListener('click', function(e) {
-        e.preventDefault();
-        let openAmount = document.querySelector('.footer .duct-action .open-amount').value;
-        fetch('/openCommand?openAmount=' + openAmount);
-    });
-    ductClose.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/closeCommand');
-    });
-
     
-    let sensorBtns = document.querySelectorAll('.sensor-power button');
-    sensorBtns.forEach(element => {
-        element.addEventListener('click', function() {
-            fetch('/powerSensor?data=' + element.classList[0]);
-        });
-    });
-
-    let piBtns = document.querySelectorAll('.pi-power button');
-    piBtns.forEach(element => {
-        element.addEventListener('click', function() {
-            fetch('/powerPi?data=' + element.classList[0]);
-        });
-    });
-
-
-
-    let powerPageDuctBtns = document.querySelectorAll('.duct-btns button');
-    powerPageDuctBtns.forEach(element => {
-        element.addEventListener('click', function() {
-            fetch('/powerDuct?data=' + element.classList[0]);
-        })
-    });
-
-
-    let powerBtns = document.querySelectorAll('.duct-control .duct-action .power-btns button');
-    powerBtns.forEach(element => {
-        element.addEventListener('click', function() {
-            fetch('/powerDuct?data=' + element.classList[0]);
-        })
-    });
-
     
 </script>
 

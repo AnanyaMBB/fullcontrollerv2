@@ -45,4 +45,8 @@ urlpatterns = [
     path('export/sensor4/', views.export_sensor_data4_csv, name='export_sensor_data4_csv'),
     path('export/sensor5/', views.export_sensor_data5_csv, name='export_sensor_data5_csv'),
     path('export/sensor6/', views.export_sensor_data6_csv, name='export_sensor_data6_csv'),
+
+    path('powerSensor/', views.power_sensor, name='power_sensor'),
+    path('powerPi/', views.power_pi, name='power_pi'),
+    path('powerDuct/', views.power_duct, name='power_duct'),
 ]

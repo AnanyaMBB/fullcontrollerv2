@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from .models import FanButtonModel, DuctButtonModel, Mode, ModeElements, DuctPosition, SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6, DuctMaxValue
+from .models import FanButtonModel, DuctButtonModel, Mode, ModeElements, DuctPosition, SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6, DuctMaxValue, LightModes
 
 
 admin.site.register(FanButtonModel)
@@ -16,4 +16,4 @@ admin.site.register(SensorData4)
 admin.site.register(SensorData5)
 admin.site.register(SensorData6)
 admin.site.register(DuctMaxValue)
-
+admin.site.register(LightModes)

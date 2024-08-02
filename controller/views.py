@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
-from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue, LightModes, SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6   
+from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue, LightModes, SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6, PowerIPS
 from django.contrib.auth.models import User
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
@@ -15,6 +15,7 @@ import csv
 # broker = '146.190.138.255'
 # broker = 'localhost'
 broker = '127.0.0.1'
+broker = 'aalsdb.kaist.ac.kr'
 port = 1883
 
 boolBtnSelectedFan = {
@@ -581,3 +582,40 @@ def export_sensor_data6_csv(request):
     return export_csv(SensorData6, 'SensorData6')
     
 
+
+def power_sensor(request):
+    if request.method == 'GET':
+        data = request.GET.get('data')
+
+        topic = data.split(':')[0]
+        command = data.split(":")[1]
+        client = paho.Client() 
+        client.connect(broker, port)
+        client.publish(topic, command)
+
+    return redirect('indexPage')
+
+
+def power_pi(request): 
+    if request.method == 'GET': 
+        data = request.GET.get('data')
+
+        topic = data.split(':')[0]
+        command = data.split(":")[1]
+        client = paho.Client() 
+        client.connect(broker, port)
+        client.publish(topic, command)
+
+    return redirect('indexPage')
+
+def power_duct(request): 
+    if request.method == 'GET': 
+        data = request.GET.get('data')
+
+        topic = data.split(':')[0]
+        command = data.split(":")[1]
+        client = paho.Client() 
+        client.connect(broker, port)
+        client.publish(topic, command)
+
+    return redirect('indexPage')
