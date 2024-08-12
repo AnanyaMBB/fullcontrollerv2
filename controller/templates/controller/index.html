@@ -47,7 +47,7 @@
 <section class="main">
     <section class="fan-control">
         <div class="east">
-            <h1>EAST</h1>
+            <h1>West</h1>
             <div class="btn-container">
             <div class="east-top-btn">
                 <form method="POST" action="{% url 'indexPage' %}">
@@ -78,7 +78,7 @@
         </div>
         </div>
         <div class="north-south">
-            <h1>SOUTH</h1>
+            <h1>North</h1>
             <div class="top">
                 <div class="top-top">
                     <div class="btn-container">
@@ -164,7 +164,7 @@
                 </div>
             </div>
             <div class="bottom">
-                <h1>NORTH</h1>
+                <h1>South</h1>
                 <div class="bottom-top">
                     <div class="btn-container">
                         <form method="POST" action="{% url 'indexPage' %}">
@@ -250,7 +250,7 @@
             </div>
         </div>
         <div class="west">
-            <h1>WEST</h1>
+            <h1>East</h1>
             <div class="west-top-btn">
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
@@ -323,7 +323,7 @@
                     <input type="text" name="q" value="floor_2_1">
                     <input type="submit" id="floor-2-1" value="Floor 2-1">
                 </form> 
-                <a href="{% url 'index' 'floor_2_btn_1' %}" class="floor_2_btn_2 {% if boolBtnSelectedDuct.floor_2_btn_1 == 1 %} selectedBtn {% endif %}"></a>
+                <a href="{% url 'index' 'floor_2_btn_1' %}" class="floor_2_btn_1 {% if boolBtnSelectedDuct.floor_2_btn_1 == 1 %} selectedBtn {% endif %}"></a>
                 <a href="{% url 'index' 'floor_2_btn_2' %}" class="floor_2_btn_2 {% if boolBtnSelectedDuct.floor_2_btn_2 == 1 %} selectedBtn {% endif %}"></a>
                 <a href="{% url 'index' 'floor_2_btn_3' %}" class="floor_2_btn_3 {% if boolBtnSelectedDuct.floor_2_btn_3 == 1 %} selectedBtn {% endif %}"></a>
                 <!-- <h1>Floor 2-2</h1>  -->
