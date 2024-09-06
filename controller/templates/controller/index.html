@@ -300,8 +300,11 @@
                     <input type="submit" id="floor-1-1" value="Floor 1-1">
                 </form>             
                 <a href="{% url 'index' 'floor_1_btn_1' %}" class="floor_1_btn_1 {% if boolBtnSelectedDuct.floor_1_btn_1 == 1 %} selectedBtn {% endif %}" ></a>
+                <input type="text" name="q" class="duct-position-input floor_1_btn_1 display-none-property" />
                 <a href="{% url 'index' 'floor_1_btn_2' %}" class="floor_1_btn_2 {% if boolBtnSelectedDuct.floor_1_btn_2 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_1_btn_2 display-none-property" />
                 <a href="{% url 'index' 'floor_1_btn_3' %}" class="floor_1_btn_3 {% if boolBtnSelectedDuct.floor_1_btn_3 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_1_btn_3 display-none-property" />
                 <!-- <h1>Floor 1-2</h1>  -->
                 <form method="POST" action="{% url 'multipleSelect' %}" id="floor-1-2-form">
                     {% csrf_token %}
@@ -309,8 +312,11 @@
                     <input type="submit" id="floor-1-2" value="Floor 1-2">
                 </form> 
                 <a href="{% url 'index' 'floor_1_btn_4' %}" class="floor_1_btn_4 {% if boolBtnSelectedDuct.floor_1_btn_4 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_1_btn_4 display-none-property" />
                 <a href="{% url 'index' 'floor_1_btn_5' %}" class="floor_1_btn_5 {% if boolBtnSelectedDuct.floor_1_btn_5 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_1_btn_5 display-none-property" />
                 <a href="{% url 'index' 'floor_1_btn_6' %}" class="floor_1_btn_6 {% if boolBtnSelectedDuct.floor_1_btn_6 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_1_btn_6 display-none-property" />
             </div>
             <div class="floor-2">
                 <div class="power-btns">
@@ -324,8 +330,11 @@
                     <input type="submit" id="floor-2-1" value="Floor 2-1">
                 </form> 
                 <a href="{% url 'index' 'floor_2_btn_1' %}" class="floor_2_btn_1 {% if boolBtnSelectedDuct.floor_2_btn_1 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_2_btn_1 display-none-property" />
                 <a href="{% url 'index' 'floor_2_btn_2' %}" class="floor_2_btn_2 {% if boolBtnSelectedDuct.floor_2_btn_2 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_2_btn_2 display-none-property" />
                 <a href="{% url 'index' 'floor_2_btn_3' %}" class="floor_2_btn_3 {% if boolBtnSelectedDuct.floor_2_btn_3 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_2_btn_3 display-none-property" />
                 <!-- <h1>Floor 2-2</h1>  -->
                 <form method="POST" action="{% url 'multipleSelect' %}" id="floor-2-2-form">
                     {% csrf_token %}
@@ -333,8 +342,11 @@
                     <input type="submit" id="floor-2-2" value="Floor 2-2">
                 </form> 
                 <a href="{% url 'index' 'floor_2_btn_4' %}" class="floor_2_btn_4 {% if boolBtnSelectedDuct.floor_2_btn_4 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_2_btn_4 display-none-property" />
                 <a href="{% url 'index' 'floor_2_btn_5' %}" class="floor_2_btn_5 {% if boolBtnSelectedDuct.floor_2_btn_5 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_2_btn_5 display-none-property" />
                 <a href="{% url 'index' 'floor_2_btn_6' %}" class="floor_2_btn_6 {% if boolBtnSelectedDuct.floor_2_btn_6 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input floor_2_btn_6 display-none-property" />
             </div>
             <div class="ceiling-1">
                 <!-- <h1>Ceiling 1-1</h1>  -->
@@ -348,8 +360,11 @@
                     <input type="submit" id="ceiling-1-1" value="Ceiling 1-1">
                 </form> 
                 <a href="{% url 'index' 'ceiling_1_btn_1' %}" class="ceiling_1_btn_1{% if boolBtnSelectedDuct.ceiling_1_btn_1 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_1_btn_1 display-none-property" />
                 <a href="{% url 'index' 'ceiling_1_btn_2' %}" class="ceiling_1_btn_2{% if boolBtnSelectedDuct.ceiling_1_btn_2 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_1_btn_2 display-none-property" />
                 <a href="{% url 'index' 'ceiling_1_btn_3' %}" class="ceiling_1_btn_3{% if boolBtnSelectedDuct.ceiling_1_btn_3 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_1_btn_3 display-none-property" />
                 <!-- <h1>Ceiling 1-2</h1>  -->
                 <form method="POST" action="{% url 'multipleSelect' %}" id="ceiling-1-2-form">
                     {% csrf_token %}
@@ -357,8 +372,11 @@
                     <input type="submit" id="ceiling-1-2" value="Ceiling 1-2">
                 </form> 
                 <a href="{% url 'index' 'ceiling_1_btn_4' %}" class="ceiling_1_btn_4{% if boolBtnSelectedDuct.ceiling_1_btn_4 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_1_btn_4 display-none-property" />
                 <a href="{% url 'index' 'ceiling_1_btn_5' %}" class="ceiling_1_btn_5{% if boolBtnSelectedDuct.ceiling_1_btn_5 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_1_btn_5 display-none-property" />
                 <a href="{% url 'index' 'ceiling_1_btn_6' %}" class="ceiling_1_btn_6{% if boolBtnSelectedDuct.ceiling_1_btn_6 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_1_btn_6 display-none-property" />
             </div>
             <div class="ceiling-2">
                 <div class="power-btns">
@@ -372,8 +390,11 @@
                     <input type="submit" id="ceiling-2-1" value="Ceiling 2-1">
                 </form> 
                 <a href="{% url 'index' 'ceiling_2_btn_1' %}" class="ceiling_2_btn_1{% if boolBtnSelectedDuct.ceiling_2_btn_1 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_2_btn_1 display-none-property" />
                 <a href="{% url 'index' 'ceiling_2_btn_2' %}" class="ceiling_2_btn_2{% if boolBtnSelectedDuct.ceiling_2_btn_2 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_2_btn_2 display-none-property" />
                 <a href="{% url 'index' 'ceiling_2_btn_3' %}" class="ceiling_2_btn_3{% if boolBtnSelectedDuct.ceiling_2_btn_3 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_2_btn_3 display-none-property" />
                 <!-- <h1>Ceiling 2-1</h1> -->
                 <form method="POST" action="{% url 'multipleSelect' %}" id="ceiling-2-2-form">
                     {% csrf_token %}
@@ -381,8 +402,11 @@
                     <input type="submit" id="ceiling-2-2" value="Ceiling 2-2">
                 </form> 
                 <a href="{% url 'index' 'ceiling_2_btn_4' %}" class="ceiling_2_btn_4{% if boolBtnSelectedDuct.ceiling_2_btn_4 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_2_btn_4 display-none-property" />
                 <a href="{% url 'index' 'ceiling_2_btn_5' %}" class="ceiling_2_btn_5{% if boolBtnSelectedDuct.ceiling_2_btn_5 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_2_btn_5 display-none-property" />
                 <a href="{% url 'index' 'ceiling_2_btn_6' %}" class="ceiling_2_btn_6{% if boolBtnSelectedDuct.ceiling_2_btn_6 == 1 %} selectedBtn {% endif %}"></a>
+                <input type="text" name="q" class="duct-position-input ceiling_2_btn_6 display-none-property" />
             </div>
         </div>
     </section>
@@ -416,7 +440,8 @@
     </div>     -->
     <div class="duct-action">
         <a href="{% url 'semiCloseCommand' %}" class="semi-close">semi-close</a>
-        <a href="{% url 'semiOpenCommand' %}" class="semi-open">semi-open</a>
+        <!-- <a href="{% url 'semiOpenCommand' %}" class="semi-open">semi-open</a> -->
+        <a class="semi-open">semi-open</a>
         <a href="{% url 'openCommand' %}" class="open">Open</a>
         <input type="text" class="open-amount">
         <a href="{% url 'closeCommand' %}" class="close">Close</a>
@@ -425,6 +450,7 @@
     </div>
 </section>
 </section>
+<section class="semi-open-overlay display-none-property"></section>
 <section class="mode-side-bar display-none-property width-0">
     <div class="title">
         <h1>Modes</h1>
@@ -1179,6 +1205,28 @@
         })
     });
 
+
+    let semiOpenBtn = document.querySelector('.footer .duct-action .semi-open');
+    let ductButtonForPosition = document.querySelectorAll('.duct-control .duct-action a');
+    let ductPositionInputs = document.querySelectorAll('.duct-position-input');
+
+    semiOpenBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        ductPositionInputs.forEach(element => {
+            element.classList.toggle('display-none-property');
+        });
+        ductButtonForPosition.forEach(element => {
+            element.classList.toggle('display-none-property');
+        });
+    });
+
+    ductPositionInputs.forEach(element => {
+        element.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                fetch('/semiOpenCommand?position=' + element.value + '&duct=' + element.classList[1]);
+            }
+        });
+    });
     
 </script>
 

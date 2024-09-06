@@ -1173,3 +1173,25 @@ table {
     display: block;
     
 }
+
+
+.semi-open-overlay {
+    position: absolute; 
+    top: 15vh;
+    left: 25%;
+    width: 50%;
+    height: 60vh;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.duct-action div .duct-position-input {
+    display: block;
+    width: 78%;
+    height: 7vh;
+    background:white;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    text-align: center;
+    font-size: 1.2em;
+}

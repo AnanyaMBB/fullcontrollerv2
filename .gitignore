@@ -1,0 +1,3 @@
+db.sqlite3
+.\controller\migrations
+.\controller\management\commands\update_timestamps.py

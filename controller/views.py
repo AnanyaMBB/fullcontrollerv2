@@ -307,17 +307,26 @@ def semiCloseCommand(request):
     return redirect('indexPage')
 
 
-def semiOpenCommand(request):
-    selectedBtns = dict(filter(is_selected, boolBtnSelectedDuct.items()))
+# def semiOpenCommand(request):
+#     selectedBtns = dict(filter(is_selected, boolBtnSelectedDuct.items()))
 
-    topic = 'command'
-    client = paho.Client()
-    client.connect(broker, port)
-    command = json.dumps({'semiOpen': selectedBtns})
-    client.publish(topic, command)
+#     topic = 'command'
+#     client = paho.Client()
+#     client.connect(broker, port)
+#     command = json.dumps({'semiOpen': selectedBtns})
+#     client.publish(topic, command)
 
-    return redirect('indexPage')
+#     return redirect('indexPage')
 
+
+def semiOpenCommand(request): 
+    if request.method == 'GET':
+        topic = 'command'
+        client = paho.Client()  
+        client.connect(broker, port)
+        command = json.dumps({'semiOpen': {request.GET['duct']: request.GET['position']}})
+        client.publish(topic, command)
+        return redirect('indexPage')    
 
 def openCommand(request):
     selectedBtns = dict(filter(is_selected, boolBtnSelectedDuct.items()))
