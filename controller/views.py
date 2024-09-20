@@ -295,17 +295,29 @@ def fanStatusCommand(request):
 
     return redirect('indexPage')
 
-def semiCloseCommand(request):  
-    selectedBtns = dict(filter(is_selected, boolBtnSelectedDuct.items()))
+# def semiCloseCommand(request):  
+#     selectedBtns = dict(filter(is_selected, boolBtnSelectedDuct.items()))
 
-    topic = 'command'
-    client = paho.Client()
-    client.connect(broker, port)
-    command = json.dumps({'semiClose': selectedBtns})
-    client.publish(topic, command)
+#     topic = 'command'
+#     client = paho.Client()
+#     client.connect(broker, port)
+#     command = json.dumps({'semiClose': selectedBtns})
+#     client.publish(topic, command)
 
-    return redirect('indexPage')
+#     return redirect('indexPage')
 
+def semiCloseCommand(request):
+    if request.method == 'GET':
+        selectedBtns = dict(filter(is_selected, boolBtnSelectedDuct.items()))
+        print(f"Selected Duct Buttons: {selectedBtns}")
+        for selectedBtn in selectedBtns.keys():
+            topic = 'command'
+            client = paho.Client()  
+            client.connect(broker, port)
+            command = json.dumps({'semiOpen': {selectedBtn: request.GET['position']}})
+            client.publish(topic, command)
+            time.sleep(2)
+    return redirect('indexPage')  
 
 # def semiOpenCommand(request):
 #     selectedBtns = dict(filter(is_selected, boolBtnSelectedDuct.items()))
