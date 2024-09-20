@@ -52,12 +52,12 @@
             <div class="east-top-btn">
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
-                    <input type="text" name="q" value="east_top_btn_1">
+                    <input type="text" name="q" value="west_top_btn_1">
                     <input type="submit" value="" {% if boolBtnSelectedFan.east_top_btn_1 == 1 %} class="selectedBtn" {% endif %} id="btn">
                 </form>
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
-                    <input type="text" name="q" value="east_top_btn_2">
+                    <input type="text" name="q" value="west_bottom_btn_1">
                     <input type="submit" value="" {% if boolBtnSelectedFan.east_top_btn_2 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 
@@ -65,12 +65,12 @@
             <div class="east-bottom-btn">
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
-                    <input type="text" name="q" value="east_bottom_btn_1">
+                    <input type="text" name="q" value="west_top_btn_2">
                     <input type="submit" value="" {% if boolBtnSelectedFan.east_bottom_btn_1 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
-                    <input type="text" name="q" value="east_bottom_btn_2">
+                    <input type="text" name="q" value="west_bottom_btn_2">
                     <input type="submit" value="" {% if boolBtnSelectedFan.east_bottom_btn_2 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 
@@ -254,12 +254,12 @@
             <div class="west-top-btn">
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
-                    <input type="text" name="q" value="west_top_btn_1">
+                    <input type="text" name="q" value="east_top_btn_1">
                     <input type="submit" value="" {% if boolBtnSelectedFan.west_top_btn_1 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
-                    <input type="text" name="q" value="west_top_btn_2">
+                    <input type="text" name="q" value="east_bottom_btn_1">
                     <input type="submit" value="" {% if boolBtnSelectedFan.west_top_btn_2 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <!-- <a href="" class="west-btn-1"></a>
@@ -268,12 +268,12 @@
             <div class="west-bottom-btn">
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
-                    <input type="text" name="q" value="west_bottom_btn_1">
+                    <input type="text" name="q" value="east_top_btn_2">
                     <input type="submit" value="" {% if boolBtnSelectedFan.west_bottom_btn_1 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
-                    <input type="text" name="q" value="west_bottom_btn_2">
+                    <input type="text" name="q" value="east_bottom_btn_2">
                     <input type="submit" value="" {% if boolBtnSelectedFan.west_bottom_btn_2 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <!-- <a href="" class="west-btn-3"></a>
@@ -429,8 +429,8 @@
 </section>
 <section class="footer">
     <div class="fan-action">
-        <a href="{% url 'supplyCommand' %}" class="supply">Supply</a>
-        <a href="{% url 'exhaustCommand' %}" class="exhaust">Exhaust</a>
+        <a href="{% url 'supplyCommand' %}" class="supply">Exhaust</a>
+        <a href="{% url 'exhaustCommand' %}" class="exhaust">Supply</a>
         <a href="{% url 'offCommand' %}" class="off">Off</a>
         <a href="{% url 'fanStatusCommand' %}" class="status">Status</a>
     </div>
