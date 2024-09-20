@@ -439,9 +439,9 @@
         <input type="text" type="password">
     </div>     -->
     <div class="duct-action">
-        <a href="{% url 'semiCloseCommand' %}" class="semi-close">semi-close</a>
+        <a href="{% url 'semiCloseCommand' %}" class="semi-close">Bulk Pos</a>
         <!-- <a href="{% url 'semiOpenCommand' %}" class="semi-open">semi-open</a> -->
-        <a class="semi-open">semi-open</a>
+        <a class="semi-open">Single Pos</a>
         <a href="{% url 'openCommand' %}" class="open">Open</a>
         <input type="text" class="open-amount">
         <a href="{% url 'closeCommand' %}" class="close">Close</a>
@@ -578,6 +578,15 @@
                 </div>
             </div>  
         </div>
+    </div>
+</section>
+
+<section class="position-container display-none-property">
+    <div>
+        <input type="number" name="position" id="position">
+    </div>
+    <div>
+        <button class="position-btn">Set Position</button>
     </div>
 </section>
 
@@ -1155,14 +1164,14 @@
     let ductSemiOpen = document.querySelector('.footer .duct-action .semi-open');
     let ductOpen = document.querySelector('.footer .duct-action .open');
     let ductClose = document.querySelector('.footer .duct-action .close');
-    ductSemiClose.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/semiCloseCommand');
-    });
-    ductSemiOpen.addEventListener('click', function(e) {
-        e.preventDefault();
-        fetch('/semiOpenCommand');
-    });
+    // ductSemiClose.addEventListener('click', function(e) {
+    //     e.preventDefault();
+    //     fetch('/semiCloseCommand');
+    // });
+    // ductSemiOpen.addEventListener('click', function(e) {
+    //     e.preventDefault();
+    //     fetch('/semiOpenCommand');
+    // });
     ductOpen.addEventListener('click', function(e) {
         e.preventDefault();
         let openAmount = document.querySelector('.footer .duct-action .open-amount').value;
@@ -1226,6 +1235,22 @@
                 fetch('/semiOpenCommand?position=' + element.value + '&duct=' + element.classList[1]);
             }
         });
+    });
+
+    let semiCloseBtn = document.querySelector('.footer .duct-action .semi-close');
+    let positionContainer = document.querySelector('.position-container');
+    let setPositionBtn = document.querySelector('.position-container .position-btn');
+    let positionContainerInput = document.querySelector('.position-container input[type="number"]');
+
+    semiCloseBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        positionContainer.classList.toggle('display-block-property');
+    });
+
+    setPositionBtn.addEventListener('click', function(e) {
+        console.log("Position Btn Cliicked");
+        e.preventDefault();
+        fetch('/semiCloseCommand?position=' + positionContainerInput.value);
     });
     
 </script>
