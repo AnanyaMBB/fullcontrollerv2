@@ -53,12 +53,12 @@
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
                     <input type="text" name="q" value="west_top_btn_2">
-                    <input type="submit" value="" {% if boolBtnSelectedFan.east_top_btn_1 == 1 %} class="selectedBtn" {% endif %} id="btn">
+                    <input type="submit" value="" {% if boolBtnSelectedFan.west_top_btn_2 == 1 %} class="selectedBtn" {% endif %} id="btn">
                 </form>
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
                     <input type="text" name="q" value="west_top_btn_1">
-                    <input type="submit" value="" {% if boolBtnSelectedFan.east_top_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                    <input type="submit" value="" {% if boolBtnSelectedFan.west_top_btn_1 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 
             </div>
@@ -66,12 +66,12 @@
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
                     <input type="text" name="q" value="west_bottom_btn_2">
-                    <input type="submit" value="" {% if boolBtnSelectedFan.east_bottom_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                    <input type="submit" value="" {% if boolBtnSelectedFan.west_bottom_btn_2 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
                     <input type="text" name="q" value="west_bottom_btn_1">
-                    <input type="submit" value="" {% if boolBtnSelectedFan.east_bottom_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                    <input type="submit" value="" {% if boolBtnSelectedFan.west_bottom_btn_1 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 
             </div>
@@ -255,12 +255,12 @@
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
                     <input type="text" name="q" value="east_bottom_btn_1">
-                    <input type="submit" value="" {% if boolBtnSelectedFan.west_top_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                    <input type="submit" value="" {% if boolBtnSelectedFan.east_bottom_btn_1 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
                     <input type="text" name="q" value="east_top_btn_1">
-                    <input type="submit" value="" {% if boolBtnSelectedFan.west_top_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                    <input type="submit" value="" {% if boolBtnSelectedFan.east_top_btn_1 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <!-- <a href="" class="west-btn-1"></a>
                 <a href="" class="west-btn-2"></a> -->
@@ -269,12 +269,12 @@
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
                     <input type="text" name="q" value="east_bottom_btn_2">
-                    <input type="submit" value="" {% if boolBtnSelectedFan.west_bottom_btn_1 == 1 %} class="selectedBtn" {% endif %}>
+                    <input type="submit" value="" {% if boolBtnSelectedFan.east_bottom_btn_2 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <form method="POST" action="{% url 'indexPage' %}">
                     {% csrf_token %}
                     <input type="text" name="q" value="east_top_btn_2">
-                    <input type="submit" value="" {% if boolBtnSelectedFan.west_bottom_btn_2 == 1 %} class="selectedBtn" {% endif %}>
+                    <input type="submit" value="" {% if boolBtnSelectedFan.east_top_btn_1 == 1 %} class="selectedBtn" {% endif %}>
                 </form>
                 <!-- <a href="" class="west-btn-3"></a>
                 <a href="" class="west-btn-4"></a> -->
@@ -481,23 +481,23 @@
         <div class="row1">
             <div class="light_1 {% if boolBtnSelectedLight.light_1 == 1 %} selectedLightBtn {% endif %}"></div>
             <div class="light_2 {% if boolBtnSelectedLight.light_2 == 1 %} selectedLightBtn {% endif %}"></div>
-            <div class="light_3 {% if boolBtnSelectedLight.light_3 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_9 {% if boolBtnSelectedLight.light_9 == 1 %} selectedLightBtn {% endif %}"></div>
             <div class="light_4 {% if boolBtnSelectedLight.light_4 == 1 %} selectedLightBtn {% endif %}"></div>
-            <div class="light_5 {% if boolBtnSelectedLight.light_5 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_4 {% if boolBtnSelectedLight.light_4 == 1 %} selectedLightBtn {% endif %}"></div>
         </div>
         <div class="row2">
-            <div class="light_6 {% if boolBtnSelectedLight.light_6 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_2 {% if boolBtnSelectedLight.light_2 == 1 %} selectedLightBtn {% endif %}"></div>
             <div class="light_7 {% if boolBtnSelectedLight.light_7 == 1 %} selectedLightBtn {% endif %}"></div>
             <div class="light_8 {% if boolBtnSelectedLight.light_8 == 1 %} selectedLightBtn {% endif %}"></div>
             <div class="light_9 {% if boolBtnSelectedLight.light_9 == 1 %} selectedLightBtn {% endif %}"></div>
-            <div class="light_10 {% if boolBtnSelectedLight.light_10 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_3 {% if boolBtnSelectedLight.light_3 == 1 %} selectedLightBtn {% endif %}"></div>
         </div>
         <div class="row3">
-            <div class="light_11 {% if boolBtnSelectedLight.light_11 == 1 %} selectedLightBtn {% endif %}"></div>
-            <div class="light_12 {% if boolBtnSelectedLight.light_12 == 1 %} selectedLightBtn {% endif %}"></div>
-            <div class="light_13 {% if boolBtnSelectedLight.light_13 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_7 {% if boolBtnSelectedLight.light_7 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_6 {% if boolBtnSelectedLight.light_6 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_6 {% if boolBtnSelectedLight.light_6 == 1 %} selectedLightBtn {% endif %}"></div>
             <div class="light_14 {% if boolBtnSelectedLight.light_14 == 1 %} selectedLightBtn {% endif %}"></div>
-            <div class="light_15 {% if boolBtnSelectedLight.light_15 == 1 %} selectedLightBtn {% endif %}"></div>
+            <div class="light_5 {% if boolBtnSelectedLight.light_5 == 1 %} selectedLightBtn {% endif %}"></div>
         </div>
     </div>
     <div class="control-btns">
@@ -540,7 +540,12 @@
             <div class="buttons">
                 <button type="button" class="sensor-board:ON">ON</button>
                 <button type="button" class="sensor-board:OFF">OFF</button>
-            </div>           
+            </div>  
+            <div class="offset">
+                <label for="offset">Offset</label>
+                <input type="number" name="offset" id="offset">
+                <button type="button" class="offset-btn">Set Offset</button>
+            </div>         
         </div>
         <div class="pi-power">
             <div class="title">
@@ -1251,6 +1256,13 @@
         console.log("Position Btn Cliicked");
         e.preventDefault();
         fetch('/semiCloseCommand?position=' + positionContainerInput.value);
+    });
+
+    let offsetBtn = document.querySelector('.sensor-power .offset-btn');
+    let offsetInput = document.querySelector('.sensor-power input[type="number"]');
+    offsetBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        fetch('/setOffset?offset=' + (offsetInput.value - 560));
     });
     
 </script>

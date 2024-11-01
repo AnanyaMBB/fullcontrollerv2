@@ -148,4 +148,7 @@ class PowerIPS(models.Model):
     duct_2_ip = models.CharField(max_length=200, null=True, blank=True)
     duct_3_ip = models.CharField(max_length=200, null=True, blank=True)
     duct_4_ip = models.CharField(max_length=200, null=True, blank=True)
+
+class Co2Offset(models.Model):
+    offset = models.FloatField(null=True, blank=True)
     

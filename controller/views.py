@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
-from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue, LightModes, SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6, PowerIPS
+from .models import FanButtonModel, DuctButtonModel, DuctPosition, Mode, ModeElements, DuctMaxValue, LightModes, SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6, PowerIPS, Co2Offset
 from django.contrib.auth.models import User
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
@@ -173,7 +173,7 @@ def indexPage(request):
         for identifier in identifiers: 
             if ductPositions.filter(btnID=f'{key}{identifier}').exists():
                 position = ductPositions.get(btnID=f'{key}{identifier}').position
-                if position == 7000:
+                if position == 0:
                     total += 1
         if total == 6:
             for fan in value: 
@@ -640,3 +640,16 @@ def power_duct(request):
         client.publish(topic, command)
 
     return redirect('indexPage')
+
+
+def setOffset(request):
+    if request.method == 'GET': 
+        offset = request.GET.get('offset')
+        offset_instance = Co2Offset.objects.first()
+        if offset_instance:
+            offset_instance.offset = offset
+            offset_instance.save()
+        else:
+            offset_instance = Co2Offset(offset=offset)
+            offset_instance.save()
+        

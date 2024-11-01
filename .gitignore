@@ -1,3 +1,6 @@
 db.sqlite3
+.\db.sqlite3
 .\controller\migrations
 .\controller\management\commands\update_timestamps.py
+.\controller\__pycache__
+.\controller\__pycache__\

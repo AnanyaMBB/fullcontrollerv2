@@ -49,4 +49,6 @@ urlpatterns = [
     path('powerSensor/', views.power_sensor, name='power_sensor'),
     path('powerPi/', views.power_pi, name='power_pi'),
     path('powerDuct/', views.power_duct, name='power_duct'),
+
+    path('setOffset/', views.setOffset, name='setOffset'),
 ]
