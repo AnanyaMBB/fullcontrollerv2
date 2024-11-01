@@ -2,7 +2,7 @@
 
 from django.core.management.base import BaseCommand
 import paho.mqtt.client as mqtt
-from controller.models import SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6
+from controller.models import SensorData1, SensorData2, SensorData3, SensorData4, SensorData5, SensorData6, Co2Offset
 from django.utils.timezone import now
 import datetime
 from django.utils.timezone import now
@@ -38,6 +38,8 @@ class Command(BaseCommand):
            
             # print(f"Receieved data : {msg.payload.decode('utf-8')}")
             data_lst =  msg.payload.decode('utf-8').split(' ')
+
+            offset = Co2Offset.objects.all().first()
             
             # Save to database
             try: 
@@ -53,7 +55,7 @@ class Command(BaseCommand):
                                         status=data_lst[0],
                                         aqi=data_lst[8],
                                         tvoc=data_lst[7],
-                                        eco2=data_lst[6])
+                                        eco2=float(data_lst[6]) + float(offset.offset) if data_lst[6]!="nan" else 0)
 
                     sensorData.save()
                     
@@ -69,7 +71,7 @@ class Command(BaseCommand):
                                         status=data_lst[0],
                                         aqi=data_lst[8],
                                         tvoc=data_lst[7],
-                                        eco2=data_lst[6])
+                                        eco2=float(data_lst[6]) + float(offset.offset) if data_lst[6]!="nan" else 0)
 
                     sensorData.save()
 
@@ -85,7 +87,7 @@ class Command(BaseCommand):
                                         status=data_lst[0],
                                         aqi=data_lst[8],
                                         tvoc=data_lst[7],
-                                        eco2=data_lst[6])
+                                        eco2=float(data_lst[6]) + float(offset.offset) if data_lst[6]!="nan" else 0)
 
                     sensorData.save()
 
@@ -101,7 +103,7 @@ class Command(BaseCommand):
                                         status=data_lst[0],
                                         aqi=data_lst[8],
                                         tvoc=data_lst[7],
-                                        eco2=data_lst[6])
+                                        eco2=float(data_lst[6]) + float(offset.offset) if data_lst[6]!="nan" else 0)
 
                     sensorData.save()
 
@@ -117,7 +119,7 @@ class Command(BaseCommand):
                                         status=data_lst[0],
                                         aqi=data_lst[8],
                                         tvoc=data_lst[7],
-                                        eco2=data_lst[6])
+                                        eco2=float(data_lst[6]) + float(offset.offset) if data_lst[6]!="nan" else 0)
 
                     sensorData.save()
 
@@ -133,7 +135,7 @@ class Command(BaseCommand):
                                         status=data_lst[0],
                                         aqi=data_lst[8],
                                         tvoc=data_lst[7],
-                                        eco2=data_lst[6])
+                                        eco2=float(data_lst[6]) + float(offset.offset) if data_lst[6]!="nan" else 0)
 
                     sensorData.save()
                 print("Successfully saved sensor fdata to database!")
